@@ -468,7 +468,11 @@ function setCollegeApplyPage(currentPlayer) {
     document.body.appendChild(collegeApplyDiv);
 }
 
-
+window.addEventListener('load', function() {
+  // 所有资源加载完成后，显示开始按钮
+  let startButton = document.getElementById('startButton');
+  startButton.style.display = 'inline-block';
+});
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("startButton").addEventListener("click", setGame);
   });
