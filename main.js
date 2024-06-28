@@ -681,6 +681,8 @@ function setVacationPage(my, div) {
         div.removeChild(button);
         specialDone = false;
         testEnd(my);
+        if(isEnd)
+            return;
 
         if (my.semester % 2 === 1) {
             //上半学期，不显示学年总结。跳转至下一学期规划。挂科的情况下，先跳转补考页面
@@ -690,14 +692,17 @@ function setVacationPage(my, div) {
             if (numCurrentFail > 0) {
                 //跳转补考页
                 examResit.updateDiv();
+                return;
             } else {
                 //不挂科的情况下，直接跳转学期规划。此时因为numCurrentFail必为0，无需再置零
                 my.examBase = 0;
                 schoolTodoList.showPlan(my);
+                return;
             }
         } else {
             //跳转学年总结页
             yearReport.updateDiv();
+            return;
         }
 
     }
@@ -717,12 +722,16 @@ function testEnd (player) {
 
     if (mood < 0 && mood + x < 0) {
         endflag = MOOD_END;
+        isEnd = true;
     } else if (strength < 0 && strength + x < 0) {
         endflag =  STRENGTH_END;
+        isEnd = true;
     } else if (spirit < 0 && spirit + x < 0) {
         endflag = SPIRIT_END;
+        isEnd = true;
     } else if (x < 0) {
         endflag = RISK_END;
+        isEnd = true;
     }
 
     setGameover(player, endflag);
@@ -1212,6 +1221,7 @@ function resetGame(giftstring1, giftstring2) {
     flagXuewei = false;  //毕业证+学位证
     flagDanbiye = false;  //单毕业证
     flagJieye = false;  //结业
+    isEnd = false;  //非正常死亡
     
     
     // 初始化玩家信息。尚未实装的功能用TBD表示。
