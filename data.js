@@ -131,10 +131,12 @@ const specialEventList = {
                 if (flagNobel) {
                     setGameover(player, NOBEL_END);
                 }
+                return;
             }
 
             if (flagBaoyanEnd) {
                 setGameover(specialEventList.cplayer, BAOYAN_END);
+                return;
             }
 
             testEnd(specialEventList.cplayer);
@@ -757,6 +759,7 @@ const examReport = {
                     //结业
                     setGameover(examReport.cplayer, JIEYE_END);
                 }
+                return;
             }
             setVacationPage(this.cplayer, globalVocDivPointer);
         }
