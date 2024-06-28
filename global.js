@@ -239,7 +239,7 @@ let flagGongzuo1 = false; //烂工作
 let flagXuewei = false;  //毕业证+学位证
 let flagDanbiye = false;  //单毕业证
 let flagJieye = false;  //结业
-
+let isEnd = false;  //非正常死亡
 
 
 
