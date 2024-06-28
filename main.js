@@ -476,20 +476,6 @@ window.addEventListener('load', function() {
 });
 
 
-window.addEventListener('load', function() {
-  // 所有资源加载完成后，显示开始按钮
-  var startButton = document.getElementById('start-button');
-  startButton.style.display = 'block';
-
-  // 这里可以添加开始按钮的点击事件处理函数
-  startButton.addEventListener('click', function() {
-    // 开始游戏的逻辑
-    console.log('游戏开始');
-    // 这里可以写上进入游戏页面的代码，比如重定向到游戏页等
-  });
-});
-
-
 
 
 //上大学前
