@@ -1215,6 +1215,7 @@ const transPage = {
             transPage.isrunning = false;
             if (transPage.cplayer.semester === 8) {
                 examReport.showGraduateDiv(transPage.cplayer);
+                return;
             }
             examReport.updateDiv(transPage.cplayer);
         }); 
