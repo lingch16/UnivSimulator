@@ -1,4 +1,4 @@
-# 大学模拟器/UnivSimulator v0.91
+# 大学模拟器/UnivSimulator v0.92
 
 # 游戏方式：
 
