@@ -140,6 +140,8 @@ const specialEventList = {
             }
 
             testEnd(specialEventList.cplayer);
+            if(isEnd)
+                return;
 
             schoolTodoList.showPlan(specialEventList.cplayer);
         }
@@ -512,6 +514,8 @@ const schoolTodoList = {
         }
 
         testEnd(schoolTodoList.cplayer);
+        if(isEnd)
+            return;
 
         schoolTodoList.button1.disabled = false;
         schoolTodoList.button2.disabled = false;
