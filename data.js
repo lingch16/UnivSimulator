@@ -739,7 +739,7 @@ const examReport = {
                         setGameover(examReport.cplayer, KAOYAN_END);
                     } else if (flagGongzuo2) {
                         setGameover(examReport.cplayer, GONGZUO2_END);
-                    } else if (flagKaoYan1) {
+                    } else if (flagKaoYan1 && flagKaoshangYan) {
                         setGameover(examReport.cplayer, KAOYAN_END);
                     } else if (!flagGongzuo1) {
                         setGameover(examReport.cplayer, BIYE_SHIYE_END);
