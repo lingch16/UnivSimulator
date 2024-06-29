@@ -405,7 +405,9 @@ function setCollegeApplyPage(currentPlayer) {
     document.body.appendChild(collegeApplyDiv);
 }
 
-
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("startButton").addEventListener("click", setGame);
+  });
 
 
 //上大学前
