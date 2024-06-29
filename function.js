@@ -1012,3 +1012,29 @@ function appendGifttext (li, text, description, rank) {
     li.id = text;
     return;
 }
+
+//该函数接受一个字符串表示的特典，返回作为classname的字符串
+function gift2SpanClassname (giftstr) {
+    switch (giftstr) {
+        case giftInt1:
+        case giftHor1:
+        case giftFin1:
+        case giftWea1:
+        return "gift-rating-D";
+        case giftAttr2:
+        case giftLuck2:
+        case giftBattle2:
+        return "gift-rating-C";
+        case giftWeaex:
+        case giftMoney:
+        case giftExam:
+        return "gift-rating-B";
+        case giftAttr3:
+        return "gift-rating-A";
+        case giftExceed:
+        case giftLuck3:
+        return "gift-rating-S";
+        default:
+        return "gift-rating-E";
+    }
+} 
