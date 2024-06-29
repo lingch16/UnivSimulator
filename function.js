@@ -28,78 +28,78 @@ function initializePlayerBuild(currentPlayer, giftstr1, giftstr2) {
     }
     switch(giftstr1) {
         case giftAttr1: {
-            wl++;
-            il++;
-            hl++;
-            fl++;
-            break;
-        }
-        case giftLuck1: {
-            currentPlayer.luck++;
-            break;
-        }
-        case giftBattle1: {
-            currentPlayer.battle++;
-            break;
-        }
-        case giftInt1: {
-            il += 4;
-            break;
-        }
-        case giftHor1: {
-            hl += 4;
-            break;
-        }
-        case giftFin1: {
-            fl += 4;
-            break;
-        }
-        case giftWea1: {
-            wl += 4;
-            break;
-        }
-        case giftAttr2: {
             wl += 2;
             il += 2;
             hl += 2;
             fl += 2;
             break;
         }
+        case giftLuck1: {
+            currentPlayer.luck += 2;
+            break;
+        }
+        case giftBattle1: {
+            currentPlayer.battle += 2;
+            break;
+        }
+        case giftInt1: {
+            il += 6;
+            break;
+        }
+        case giftHor1: {
+            hl += 6;
+            break;
+        }
+        case giftFin1: {
+            fl += 6;
+            break;
+        }
+        case giftWea1: {
+            wl += 6;
+            break;
+        }
+        case giftAttr2: {
+            wl += 4;
+            il += 4;
+            hl += 4;
+            fl += 4;
+            break;
+        }
         case giftLuck2: {
-            currentPlayer.luck += 3;
+            currentPlayer.luck += 5;
             break;
         }
         case giftBattle2: {
-            currentPlayer.battle += 3;
+            currentPlayer.battle += 5;
             break;
         }
         case giftWeaex: {
             wl += 10;
-            currentPlayer.battle += 3;
+            currentPlayer.battle += 5;
             iu -= 8;
             break;
         }
         case giftMoney: {
             wu -= 7;
-            currentPlayer.money += 20000;
+            currentPlayer.money += 25000;
             break;
         }
         case giftAttr3: {
-            wl += 5;
-            il += 5;
-            hl += 5;
-            fl += 5;
+            wl += 6;
+            il += 6;
+            hl += 6;
+            fl += 6;
             break;
         }
         case giftExceed: {
-            wu += 6;
-            iu += 6;
-            hu += 6;
-            fu += 6;
+            wu += 7;
+            iu += 7;
+            hu += 7;
+            fu += 7;
             break;
         }
         case giftLuck3: {
-            currentPlayer.luck += 10;
+            currentPlayer.luck += 12;
             break;
         }
         default:
@@ -107,78 +107,78 @@ function initializePlayerBuild(currentPlayer, giftstr1, giftstr2) {
     }
     switch(giftstr2) {
         case giftAttr1: {
-            wl++;
-            il++;
-            hl++;
-            fl++;
-            break;
-        }
-        case giftLuck1: {
-            currentPlayer.luck++;
-            break;
-        }
-        case giftBattle1: {
-            currentPlayer.battle++;
-            break;
-        }
-        case giftInt1: {
-            il += 4;
-            break;
-        }
-        case giftHor1: {
-            hl += 4;
-            break;
-        }
-        case giftFin1: {
-            fl += 4;
-            break;
-        }
-        case giftWea1: {
-            wl += 4;
-            break;
-        }
-        case giftAttr2: {
             wl += 2;
             il += 2;
             hl += 2;
             fl += 2;
             break;
         }
+        case giftLuck1: {
+            currentPlayer.luck += 2;
+            break;
+        }
+        case giftBattle1: {
+            currentPlayer.battle += 2;
+            break;
+        }
+        case giftInt1: {
+            il += 6;
+            break;
+        }
+        case giftHor1: {
+            hl += 6;
+            break;
+        }
+        case giftFin1: {
+            fl += 6;
+            break;
+        }
+        case giftWea1: {
+            wl += 6;
+            break;
+        }
+        case giftAttr2: {
+            wl += 4;
+            il += 4;
+            hl += 4;
+            fl += 4;
+            break;
+        }
         case giftLuck2: {
-            currentPlayer.luck += 3;
+            currentPlayer.luck += 5;
             break;
         }
         case giftBattle2: {
-            currentPlayer.battle += 3;
+            currentPlayer.battle += 5;
             break;
         }
         case giftWeaex: {
             wl += 10;
-            currentPlayer.battle += 3;
+            currentPlayer.battle += 5;
             iu -= 8;
             break;
         }
         case giftMoney: {
             wu -= 7;
-            currentPlayer.money += 20000;
+            currentPlayer.money += 25000;
             break;
         }
         case giftAttr3: {
-            wl += 5;
-            il += 5;
-            hl += 5;
-            fl += 5;
+            wl += 6;
+            il += 6;
+            hl += 6;
+            fl += 6;
             break;
         }
         case giftExceed: {
-            wu += 6;
-            iu += 6;
-            hu += 6;
-            fu += 6;
+            wu += 7;
+            iu += 7;
+            hu += 7;
+            fu += 7;
             break;
         }
         case giftLuck3: {
-            currentPlayer.luck += 10;
+            currentPlayer.luck += 12;
             break;
         }
         default:
@@ -190,7 +190,7 @@ function initializePlayerBuild(currentPlayer, giftstr1, giftstr2) {
     currentPlayer.horizon = getRandomInteger(hl, hu);
     currentPlayer.finance = getRandomInteger(fl, fu);
     //初始金钱为100乘家境平方，再加1000。即，初始金钱在1000-11000范围变动。
-    currentPlayer.money += 100 * currentPlayer.wealth * currentPlayer.wealth + 1000;
+    currentPlayer.money += 100 * currentPlayer.wealth * currentPlayer.wealth + 2000;
     //家境对财商的加成。取整数。
     currentPlayer.finance += Math.floor(currentPlayer.wealth / 2);
     //注意，启用超越极限特典的情况下，家境、智力值可能突破10。高考填志愿、结算等页面应做相应处理。
