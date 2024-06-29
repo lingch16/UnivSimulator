@@ -603,10 +603,7 @@ function wealth2RatingSpan(wealth) {
     spanname.textContent = "家境：";
     let spanrating = document.createElement("span");
 
-    if (wealth > 10) {
-        spanrating.textContent = wealth.toString() + "    富裕";
-        spanrating.className = "attr-rating-S";
-    }
+    
     if (wealth === 10) {
         spanrating.textContent = wealth.toString() + "    中产";
         spanrating.className = "attr-rating-A";
@@ -619,6 +616,10 @@ function wealth2RatingSpan(wealth) {
     } else {
         spanrating.textContent = wealth.toString() + "    贫困";
         spanrating.className = "attr-rating-D";
+    }
+    if (wealth > 10) {
+        spanrating.textContent = wealth.toString() + "    富裕";
+        spanrating.className = "attr-rating-S";
     }
 
     let span = document.createElement("span");
