@@ -648,7 +648,7 @@ function setVacationPage(my, div) {
 
 function testEnd (player) {
     //依次计算心情、体力、精力
-    let z = getRandomInteger(10, 100);
+    let z = getRandomInteger(15, 100);
     let x = z - player.risk + player.battle + player.luck;
     let mood = player.mood;
     let strength = player.strength;
