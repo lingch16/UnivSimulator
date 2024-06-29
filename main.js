@@ -250,6 +250,8 @@ function setCollegeApplyPage(currentPlayer) {
 
     let collegeApplyDiv = document.createElement("div");
     collegeApplyDiv.className = "apply-page";
+    let applyContainer = document.createElement("div");
+    applyContainer.className = "apply-container";
 
     let title = document.createElement("h2");
     title.textContent = "志愿填报"
@@ -316,82 +318,58 @@ function setCollegeApplyPage(currentPlayer) {
     } else {
         currentUnivList = [...poorUnivList];
     }
-    
-    //设置复选框
-
-    let univul = document.createElement("ul");
-    univul.className = "apply-univcontainer";
-    collegeApplyDiv.appendChild(univul);
-
-    //let selectedCheckboxes = [];
-    for (let i=0; i < currentUnivList.length; i++) {
-        
-        let li = document.createElement("li");
-        appendUnivtext(li, currentUnivList[i].name, currentUnivList[i].text);
-        li.id = currentUnivList[i].name;
-        univul.appendChild(li);
-
-        /*
-        label.textContent = currentUnivList[i].name;
-        label.htmlFor = currentUnivList[i].name;
-        let div = document.createElement("div");
-        div.textContent = currentUnivList[i].text;
-        let checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.name = "collegeApply";
-        checkbox.id = currentUnivList[i].name;
-        checkbox.value = currentUnivList[i].name;
-        checkbox.addEventListener("change", function() {
-            checkCollegeSelections(this, selectedCheckboxes);
-        })
-        let adiv = document.createElement("div");
-        adiv.className = "apply-univ";
-        let bdiv = document.createElement("div");
-        bdiv.className = "apply-univ-label";
-        bdiv.appendChild(checkbox);
-        bdiv.appendChild(label);
-        adiv.appendChild(bdiv);
-        adiv.appendChild(div);
-        collegeApplyDiv.appendChild(adiv);
-        */
-    }
-
-    univul.addEventListener(
-        "click",
-        (ev) => {
-          if (ev.target.tagName === "LI") {
-            ev.target.classList.toggle("done");
-          }
-        },
-        false,
-    );
-
 
 
     let myCollege = [];
     let pass = [];
-    
+
+    //设置复选框
+    let selectedunivnames = [];
+
+    for(let i = 0; i < currentUnivList.length; i++) {
+        let cdiv = document.createElement("div");
+        let cdiv1 = document.createElement("div");
+        let cdiv2 = document.createElement("div");
+        cdiv.className = "apply-univcontainer";
+        cdiv1.className = "apply-univname";
+        cdiv2.className = "apply-univtext";
+        cdiv1.textContent = currentUnivList[i].name;
+        cdiv2.textContent = currentUnivList[i].text;
+        cdiv.appendChild(cdiv1);
+        cdiv.appendChild(cdiv2);
+        applyContainer.appendChild(cdiv);
+        cdiv.addEventListener("click", function () {
+            if (this.classList.contains("done")) {
+                let index = selectedunivnames.indexOf(cdiv1.textContent);
+                if (index !== -1) {
+                    selectedunivnames.splice(index, 1);
+                }
+                this.classList.toggle("done");
+                return; 
+            }
+            if (selectedunivnames.length >= 3) {
+                alert("最多选择三所学校");
+                return;
+            }
+            this.classList.toggle("done");
+            selectedunivnames.push(cdiv1.textContent);
+        })
+    }
+
+   
     let submitButton = document.createElement("button");
     submitButton.textContent = "确定";
     submitButton.className = "apply-button";
 
     submitButton.onclick = () => {
         //获取选择项
-        let selectedus = [];
-        let univs = univul.getElementsByTagName("li");
-        for (let i = 0; i < univs.length; i++) {
-            if (univs[i].classList.contains("done")) {
-                selectedus.push(univs[i]);
-            }
-        }
-        if (selectedus.length != 3) {
-            selectedus = [];
+        if (selectedunivnames.length < 3) {
             alert("请选择三所学校");
             return;
         }
-        //selectedus的元素是li，根据它们的id确定对应的大学
-        for (let i = 0; i < selectedus.length; i++) {
-            let uv = univList.find(element => element.name === selectedus[i].id);
+
+        for (let i = 0; i < selectedunivnames.length; i++) {
+            let uv = univList.find(element => element.name === selectedunivnames[i]);
             myCollege.push(uv);
         }
         if (myCollege.length === 3) {
@@ -422,58 +400,10 @@ function setCollegeApplyPage(currentPlayer) {
         }
     }
 
-    /*
-    submitButton.onclick = function() {
-        //必须选择三项
-        if (selectedCheckboxes.length < 3) {
-            alert("请选择完全部三所学校再提交");
-            return;
-        }
-
-        myCollege.push(univList.find(univ => univ.name === selectedCheckboxes[0].value));
-        myCollege.push(univList.find(univ => univ.name === selectedCheckboxes[1].value));
-        myCollege.push(univList.find(univ => univ.name === selectedCheckboxes[2].value));
-
-        //根据选择的学校，依次判定是否被录取
-        //先按录取难度从高到低重新排序。即rank升序。
-        myCollege.sort(function(a,b) {
-            return a.rank - b.rank
-        });
-
-        //被录取的概率百分数是 智商 * 4 + tier * 10 + rank;
-        //智商6，填最好的三所大学，掉档率仅 0.75x0.64x0.63=30%
-        //智商3，填第二档志愿最好的三所大学，掉档率24%
-        //智商0，填最后一档志愿最好的三所大学，掉档率25%
-        for(let i = 0; i < myCollege.length; i++) {
-            let admissionProbability = currentPlayer.intelligence * 4 + myCollege[i].tier * 10 + myCollege[i].rank;
-            let testNumber = getRandomInteger(0, 100);  //获取0到100间的随机数
-            if (admissionProbability >= testNumber) {
-                pass.push(myCollege[i]);
-            }
-        }
-        //三个志愿都没录上，即滑档到最差的学校。
-        if (pass.length === 0) {
-            currentPlayer.univRank = rankexUniv.rank;
-        } else {
-            currentPlayer.univRank = pass[0].rank;
-        }
-        //删除当前页面、设置新的录取页面
-        document.body.removeChild(collegeApplyDiv);
-        collegeApplyDiv = null;
-        setAdmissionLetterPage(currentPlayer.univRank, currentPlayer);
-    }
-    */
-
+    collegeApplyDiv.appendChild(applyContainer);
     collegeApplyDiv.appendChild(submitButton);
     document.body.appendChild(collegeApplyDiv);
 }
-
-window.addEventListener('load', function() {
-  // 所有资源加载完成后，显示开始按钮
-  let stbutton = document.getElementById('startButton');
-  startButton.style.display = 'inline-block';
-    stbutton.addEventListener("click", setGame);
-});
 
 
 
@@ -1000,177 +930,117 @@ function setGiftPage(rank) {
     maindiv.className = "gift-page";
     
     let title = document.createElement("h2");
-    title.textContent = "选择喜欢的通关特典吧";
-
-    let giftlist = document.createElement("ul");
-    let li1 = document.createElement("li");
-    let li2 = document.createElement("li");
-    let li3 = document.createElement("li");
-    let li4 = document.createElement("li");
-    let li5 = document.createElement("li");
-    let li6 = document.createElement("li");
-    let li7 = document.createElement("li");
-    let li8 = document.createElement("li");
-    let li9 = document.createElement("li");
-    let li10 = document.createElement("li");
-
-    let lidis = document.createElement("li");
-    lidis.textContent = "提升结局评价，选择更多强力特典";
-    lidis.className = "gift-disable-item";
+    title.textContent = "选择一项通关特典";
+    title.className = "gift-title";
+    if (rank >= A_END_RANK) {
+        title.textContent = "历史最高评价达到A以上，可选择两项特典";
+    }
 
     let button = document.createElement("button");
-    button.textContent = "继承通关特典，再来一次！";
+    button.className = "gift-button";
+    button.textContent = "继承通关特典，再来一局！";
+    let giftcontainer = document.createElement("div");
+    giftcontainer.className = "gift-container";
+    
+    let currentGiftlist = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+    let currentGiftDess = ["ich", "ni", "sann", "shi", "go", "roku", "nana", "hachi", "kyuu", "jyuu"];
 
-    giftlist.appendChild(li1);
-    giftlist.appendChild(li2);
-    giftlist.appendChild(li3);
-    giftlist.appendChild(li4);
-    giftlist.appendChild(li5);
-    giftlist.appendChild(li6);
-    giftlist.appendChild(li7);
-    giftlist.appendChild(li8);
-    giftlist.appendChild(li9);
-    giftlist.appendChild(li10);
-
-    if (rank === S_END_RANK) {
-        appendGifttext(li10, giftLuck3, giftLuck3des, GIFT_S_RANK);
-        appendGifttext(li9, giftExceed, giftExceeddes, GIFT_S_RANK);
-        appendGifttext(li8, giftAttr3, giftAttr3des, GIFT_A_RANK);
-        appendGifttext(li7, giftExam, giftExamdes, GIFT_B_RANK);
-        appendGifttext(li6, giftMoney, giftMoneydes, GIFT_B_RANK);
-        appendGifttext(li5, giftWeaex, giftWeaexdes, GIFT_B_RANK);
-        appendGifttext(li4, giftBattle2, giftBattle2des, GIFT_C_RANK);
-        appendGifttext(li3, giftLuck2, giftLuck2des, GIFT_C_RANK);
-        appendGifttext(li2, giftAttr2, giftAttr2des, GIFT_C_RANK);
-        appendGifttext(li1, giftHor1, giftHor1des, GIFT_D_RANK);
+    switch(rank) {
+        case S_END_RANK: {
+            currentGiftlist = SrankGiftTexts;
+            currentGiftDess = SrankGiftDess;
+            break;
+        }
+        case A_END_RANK: {
+            currentGiftlist = ArankGiftTexts;
+            currentGiftDess = ArankGiftDess;
+            break;
+        }
+        case B_END_RANK: {
+            currentGiftlist = BrankGiftTexts;
+            currentGiftDess = BrankGiftDess;
+            break;
+        }
+        case C_END_RANK: {
+            currentGiftlist = CrankGiftTexts;
+            currentGiftDess = CrankGiftDess;
+            break;
+        }
+        case D_END_RANK: {
+            currentGiftlist = DrankGiftTexts;
+            currentGiftDess = DrankGiftDess;
+            break;
+        }
+        default: {
+            currentGiftlist = ErankGiftTexts;
+            currentGiftDess = ErankGiftDess;
+            break;
+        }
     }
-    if (rank === A_END_RANK) {
-        appendGifttext(li10, giftAttr3, giftAttr3des, GIFT_A_RANK);
-        appendGifttext(li9, giftExam, giftExamdes, GIFT_B_RANK);
-        appendGifttext(li8, giftMoney, giftMoneydes, GIFT_B_RANK);
-        appendGifttext(li7, giftWeaex, giftWeaexdes, GIFT_B_RANK);
-        appendGifttext(li6, giftBattle2, giftBattle2des, GIFT_C_RANK);
-        appendGifttext(li5, giftLuck2, giftLuck2des, GIFT_C_RANK);
-        appendGifttext(li4, giftAttr2, giftAttr2des, GIFT_C_RANK);
-        appendGifttext(li3, giftHor1, giftHor1des, GIFT_D_RANK);
-        appendGifttext(li2, giftInt1, giftInt1des, GIFT_D_RANK);
-        appendGifttext(li1, giftFin1, giftFin1des, GIFT_D_RANK);
-    }
-    if (rank === B_END_RANK) {
-        appendGifttext(li10, giftExam, giftExamdes, GIFT_B_RANK);
-        appendGifttext(li9, giftMoney, giftMoneydes, GIFT_B_RANK);
-        appendGifttext(li8, giftWeaex, giftWeaexdes, GIFT_B_RANK);
-        appendGifttext(li7, giftBattle2, giftBattle2des, GIFT_C_RANK);
-        appendGifttext(li6, giftLuck2, giftLuck2des, GIFT_C_RANK);
-        appendGifttext(li5, giftAttr2, giftAttr2des, GIFT_C_RANK);
-        appendGifttext(li4, giftHor1, giftHor1des, GIFT_D_RANK);
-        appendGifttext(li3, giftInt1, giftInt1des, GIFT_D_RANK);
-        appendGifttext(li2, giftFin1, giftFin1des, GIFT_D_RANK);
-        appendGifttext(li1, giftWea1, giftWea1des, GIFT_D_RANK);
-    }
-    if (rank === C_END_RANK) {
-        appendGifttext(li10, giftBattle2, giftBattle2des, GIFT_C_RANK);
-        appendGifttext(li9, giftLuck2, giftLuck2des, GIFT_C_RANK);
-        appendGifttext(li8, giftAttr2, giftAttr2des, GIFT_C_RANK);
-        appendGifttext(li7, giftHor1, giftHor1des, GIFT_D_RANK);
-        appendGifttext(li6, giftInt1, giftInt1des, GIFT_D_RANK);
-        appendGifttext(li5, giftFin1, giftFin1des, GIFT_D_RANK);
-        appendGifttext(li4, giftWea1, giftWea1des, GIFT_D_RANK);
-        appendGifttext(li3, giftAttr1, giftAttr1des, GIFT_E_RANK);
-        appendGifttext(li2, giftLuck1, giftLuck1des, GIFT_E_RANK);
-        appendGifttext(li1, giftBattle1, giftBattle1des, GIFT_E_RANK);
-    }
-    if (rank === D_END_RANK) {
-        appendGifttext(li7, giftHor1, giftHor1des, GIFT_D_RANK);
-        appendGifttext(li6, giftInt1, giftInt1des, GIFT_D_RANK);
-        appendGifttext(li5, giftFin1, giftFin1des, GIFT_D_RANK);
-        appendGifttext(li4, giftWea1, giftWea1des, GIFT_D_RANK);
-        appendGifttext(li3, giftAttr1, giftAttr1des, GIFT_E_RANK);
-        appendGifttext(li2, giftLuck1, giftLuck1des, GIFT_E_RANK);
-        appendGifttext(li1, giftBattle1, giftBattle1des, GIFT_E_RANK);
-        giftlist.removeChild(li8);
-        giftlist.removeChild(li9);
-        giftlist.removeChild(li10);
-        giftlist.appendChild(lidis);
-    }
-    if (rank === E_END_RANK) {
-        appendGifttext(li3, giftAttr1, giftAttr1des, GIFT_E_RANK);
-        appendGifttext(li2, giftLuck1, giftLuck1des, GIFT_E_RANK);
-        appendGifttext(li1, giftBattle1, giftBattle1des, GIFT_E_RANK);
-        giftlist.removeChild(li4);
-        giftlist.removeChild(li5);
-        giftlist.removeChild(li6);
-        giftlist.removeChild(li7);
-        giftlist.removeChild(li8);
-        giftlist.removeChild(li9);
-        giftlist.removeChild(li10);
-        giftlist.appendChild(lidis);
-    }
-
-    giftlist.addEventListener(
-        "click",
-        (ev) => {
-          if (ev.target.tagName === "LI" && ev.target.className != "gift-disable-item") {
-            ev.target.classList.toggle("done");
-          }
-        },
-        false,
-    );
 
     let selectedgifts = [];
 
-    button.onclick = () => {
-        let items = giftlist.getElementsByTagName("li");
-        for (let i = 0; i < items.length; i++) {
-            if (items[i].classList.contains("done")) {
-                selectedgifts.push(items[i]);
+    for (let i = 0; i < currentGiftlist.length; i++) {
+        let gdiv = document.createElement("div");
+        let span1 = document.createElement("span");
+        let span2 = document.createElement("span");
+        gdiv.className = "gift-item";
+        gdiv.appendChild(span1);
+        gdiv.appendChild(span2);
+        span1.textContent = currentGiftlist[i];
+        span1.className = gift2SpanClassname(currentGiftlist[i]);
+        span2.textContent = currentGiftDess[i];
+
+        gdiv.addEventListener("click", function () {
+            if (span1.textContent === giftLowrank) {
+                return;
             }
-        }
-        if (selectedgifts.length > 2) {
-            if (rank >= A_END_RANK) {
+            if (this.classList.contains("done")) {
+                let index = selectedgifts.indexOf(span1.textContent);
+                if (index !== -1) {
+                    selectedgifts.splice(index, 1);
+                }
+                this.classList.toggle("done");
+                return; 
+            }
+            if (selectedgifts.length >= 2) {
                 alert("最多选择两项特典");
-                selectedgifts = [];
-                return;
-            } else {
-                alert("只能选择一项特典");
-                selectedgifts = [];
                 return;
             }
-        }
+            if (selectedgifts.length >= 1 && rank < A_END_RANK) {
+                alert("最多选择一项特典");
+                return;
+            }
+            this.classList.toggle("done");
+            selectedgifts.push(span1.textContent);
+        })
+        giftcontainer.appendChild(gdiv);
+    }
+
+
+    button.onclick = () => {
+        if (selectedgifts.length < 2 && rank >= A_END_RANK) {
+            alert("历史最佳达到A以上，请选择两项特典");
+            return;
+        } 
         if (selectedgifts.length < 1) {
-            alert("请至少选择一项特典");
-            selectedgifts = [];
-            return;
-        } else if (selectedgifts.length < 2 && rank >= A_END_RANK) {
-            alert("达到A及以上评价，请选择两项特典");
-            selectedgifts = [];
+            alert("请选择一项特典");
             return;
         }
-        //下面的写法待商榷，不确定这个id到底是什么
+        if (selectedgifts.length === 1) {
+            resetGame(selectedgifts[0], giftnone);
+        }
         if (selectedgifts.length === 2) {
-            if (rank < A_END_RANK) {
-                alert("只能选择一项特典");
-                selectedgifts = [];
-                return;
-            }
-            resetGame(selectedgifts[0].id, selectedgifts[1].id);
-        } else if (selectedgifts.length === 1) {
-            resetGame(selectedgifts[0].id, giftnone);
-        } else {
-            resetGame(giftnone, giftnone);
+            resetGame(selectedgifts[0], selectedgifts[1]);
         }
     }
 
 
 
     maindiv.appendChild(title);
-    maindiv.appendChild(giftlist);
+    maindiv.appendChild(giftcontainer);
     maindiv.appendChild(button);
-    title.className = "gift-title";
-    giftlist.className = "gift-container";
-    button.className = "gift-button";
-
-
+ 
     document.body.innerHTML = "";
     document.body.appendChild(maindiv);
 
