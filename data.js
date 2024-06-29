@@ -1215,17 +1215,34 @@ const transPage = {
         if (transPage.isrunning) {
             return;
         }
-        transPage.isrunning = true;
-        transPage.rotDiv.animate(tranKeyframes, tranParams).finished.then(() => {
+        //检测浏览器是否支持
+        if ("animate" in document.body) {
+            transPage.isrunning = true;
+            transPage.rotDiv.animate(tranKeyframes, tranParams).finished.then(() => {
             //等动画结束后，执行后续操作
-            transPage.rotDiv.style.display = "none"; //隐藏本页面
+                transPage.rotDiv.style.display = "none"; //隐藏本页面
+                transPage.isrunning = false;
+                if (transPage.cplayer.semester === 8) {
+                    examReport.showGraduateDiv(transPage.cplayer);
+                    return;
+                }
+                examReport.updateDiv(transPage.cplayer);
+            }).catch((error) => {
+                console.error("动画出错：", error);
+                transPage.isrunning = false;
+                alert("哎呀，出错啦。请再试一遍。");
+            });
+        } else {
+            //处理不支持动画的情况
+            console.log("浏览器不支持动画，直接跳过");
+            transPage.rotDiv.style.display = "none";
             transPage.isrunning = false;
             if (transPage.cplayer.semester === 8) {
                 examReport.showGraduateDiv(transPage.cplayer);
                 return;
             }
             examReport.updateDiv(transPage.cplayer);
-        }); 
+        }
     }
 }
 
