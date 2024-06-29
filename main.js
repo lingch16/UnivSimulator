@@ -405,9 +405,12 @@ function setCollegeApplyPage(currentPlayer) {
     document.body.appendChild(collegeApplyDiv);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("startButton").addEventListener("click", setGame);
-  });
+window.onload = function() {
+    let btn = document.getElementById('startButton');
+    btn.disabled = false; 
+    btn.textContent = '填志愿';
+    btn.addEventListener("click", setGame);
+};
 
 
 //上大学前
