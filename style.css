@@ -129,46 +129,36 @@ ul li {
   margin-bottom: 20px;
 }
 
+.apply-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .apply-univname {
   font-size: 1.2em;
-  height: 60%;
 }
 
 .apply-univtext {
-  height: 40%;
+  margin-top: 5px;
 }
 
 .apply-univcontainer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
+  background-color: rgb(242, 241, 233);
+  border: 1px solid rgb(200, 233, 245); /* 普通的边框 */
+  border-width: 2px; /* 边框宽度 */
+  border-style: solid; /* 边框样式 */
+  border-radius: 5px; /* 边框圆角 */
 }
 
-.apply-page li {
-  list-style-type: none;
-  position: relative;
-  margin: 2px;
-  padding: 0.5em 0.5em 0.5em 2em;
-  background: lightyellow;
-  font-family: sans-serif;
+.apply-univcontainer.done {
+  background-color: lightblue;
+  border-color: red;
 }
 
-.apply-page li.done {
-  background: #5691ff;
-}
 
-.apply-page li.done::before {
-  content: "";
-  position: absolute;
-  border-color: #c047c6;
-  border-style: solid;
-  border-width: 0 0.3em 0.25em 0;
-  height: 1em;
-  top: 1.3em;
-  left: 0.6em;
-  margin-top: -1em;
-  transform: rotate(45deg);
-  width: 0.5em;
-}
 
 
 
@@ -257,15 +247,23 @@ ul li {
     overflow: hidden;
     background-color: #333;
     text-align: center;
+    padding: 30px;
 }
 
-.statusBar span {
-    float: none;
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.status-span {
+  padding: 14px;
+  color: white;
+}
+
+.plain-status-span {
+  padding: 5px;
+  font-weight: normal;
+  color: white;
+}
+
+.warning-status-span {
+  color: #FF6666;
+  font-weight: bold;
 }
 
 .bcontainer {
@@ -688,43 +686,6 @@ ul li {
   padding: 20px;
 }
 
-.gift-page li {
-  list-style-type: none;
-  position: relative;
-  margin: 2px;
-  padding: 0.5em 0.5em 0.5em 2em;
-  background: #696969;
-  font-family: sans-serif;
-}
-
-.gift-disable-item {
-  list-style-type: none;
-  position: relative;
-  margin: 2px;
-  padding: 0.5em 0.5em 0.5em 2em;
-  background: rgb(114, 114, 114);
-  font-family: sans-serif;
-}
-
-
-.gift-page li.done {
-  background: #5691ff;
-}
-
-.gift-page li.done::before {
-  content: "";
-  position: absolute;
-  border-color: #c047c6;
-  border-style: solid;
-  border-width: 0 0.3em 0.25em 0;
-  height: 1em;
-  top: 1.3em;
-  left: 0.6em;
-  margin-top: -1em;
-  transform: rotate(45deg);
-  width: 0.5em;
-}
-
 .gift-rating-S {
   color:red;
 }
@@ -756,9 +717,25 @@ ul li {
 
 .gift-container {
   margin-bottom: 35px;
-  width: 50%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gift-item {
+  padding:10px;
+  background: #9f9e9e;
+  margin-bottom: 10px;
+  border: 1px solid rgb(200, 233, 245); /* 普通的边框 */
+  border-width: 2px; /* 边框宽度 */
+  border-style: solid; /* 边框样式 */
+  border-radius: 5px; /* 边框圆角 */
+}
+
+.gift-item.done {
+  background: #5691ff;
+  border-color: red;
 }
 
 .gift-button {
