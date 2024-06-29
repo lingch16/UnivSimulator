@@ -109,6 +109,8 @@ const P3_IQ_LIMIT = 9;
 
 //通关特典
 const giftnone = "占位符";
+const giftLowrank = "提升通关评价，解锁更多特典";
+const giftemptystr = "";
 //E评价
 const GIFT_E_RANK = 5;  
 const giftAttr1 = "铁树枝干";
@@ -117,6 +119,8 @@ const giftLuck1 = "幸运挂饰";
 const giftLuck1des = "(幸运值+1）";
 const giftBattle1 = "玩具拳套";
 const giftBattle1des = "（战斗力+1）";
+const ErankGiftTexts = [giftAttr1, giftLuck1, giftBattle1, giftLowrank, giftLowrank, giftLowrank, giftLowrank, giftLowrank, giftLowrank, giftLowrank];
+const ErankGiftDess = [giftAttr1des, giftLuck1des, giftBattle1des, giftemptystr, giftemptystr, giftemptystr, giftemptystr, giftemptystr, giftemptystr, giftemptystr];
 //D评价
 const GIFT_D_RANK = 6;
 const giftInt1 = "智力斗篷";
@@ -127,6 +131,8 @@ const giftFin1 = "资本家手杖";
 const giftFin1des = "（财商随机下限+4）";
 const giftWea1 = "全面脱贫";
 const giftWea1des = "（家境随机下限+4）";
+const DrankGiftTexts = [giftAttr1, giftLuck1, giftBattle1, giftInt1, giftHor1, giftFin1, giftWea1, giftLowrank, giftLowrank, giftLowrank];
+const DrankGiftDess = [giftAttr1des, giftLuck1des, giftBattle1des, giftInt1des, giftHor1des, giftFin1des, giftWea1des, giftemptystr, giftemptystr, giftemptystr];
 //C评价
 const GIFT_C_RANK = 7;
 const giftAttr2 = "贵族圆环";
@@ -135,6 +141,8 @@ const giftLuck2 = "空灵吊坠";
 const giftLuck2des = "（幸运值+3）";
 const giftBattle2 = "攻击之爪";
 const giftBattle2des = "（战斗力+3）";
+const CrankGiftTexts = [giftAttr1, giftLuck1, giftBattle1, giftInt1, giftHor1, giftFin1, giftWea1, giftAttr2, giftLuck2, giftBattle2];
+const CrankGiftDess = [giftAttr1des, giftLuck1des, giftBattle1des, giftInt1des, giftHor1des, giftFin1des, giftWea1des, giftAttr2des, giftLuck2des, giftBattle2des];
 //B评价
 const GIFT_B_RANK = 8;
 const giftWeaex = "地主家的傻儿子";
@@ -143,16 +151,22 @@ const giftMoney = "暴发户";
 const giftMoneydes = "（家境贫困，但开局金钱+20000）";
 const giftExam = "卷王";
 const giftExamdes = "（大幅提升期末考试成绩）";
+const BrankGiftTexts = [giftInt1, giftHor1, giftFin1, giftWea1, giftAttr2, giftLuck2, giftBattle2, giftWeaex, giftMoney, giftExam];
+const BrankGiftDess = [giftInt1des, giftHor1des, giftFin1des, giftWea1des, giftAttr2des, giftLuck2des, giftBattle2des, giftWeaexdes, giftMoneydes, giftExamdes];
 //A评价
 const GIFT_A_RANK = 9;
 const giftAttr3 = "国王头冠";
 const giftAttr3des = "（全属性随机下限+5）";
+const ArankGiftTexts = [giftInt1, giftHor1, giftFin1, giftAttr2, giftLuck2, giftBattle2, giftWeaex, giftMoney, giftExam, giftAttr3];
+const ArankGiftDess = [giftInt1des, giftHor1des, giftFin1des, giftAttr2des, giftLuck2des, giftBattle2des, giftWeaexdes, giftMoneydes, giftExamdes, giftAttr3des];
 //S评价
 const GIFT_S_RANK = 10;
 const giftExceed = "超越极限";
 const giftExceeddes = "（全属性随机上限+6）";
 const giftLuck3 = "幸运女神的庇佑";
 const giftLuck3des = "（幸运值+10）";
+const SrankGiftTexts = [giftHor1, giftAttr2, giftLuck2, giftBattle2, giftWeaex, giftMoney, giftExam, giftAttr3, giftExceed, giftLuck3];
+const SrankGiftDess = [giftHor1des, giftAttr2des, giftLuck2des, giftBattle2des, giftWeaexdes, giftMoneydes, giftExamdes, giftAttr3des, giftExceeddes, giftLuck3des];
 
 //结局的评价等级
 const S_END_RANK = 10;
