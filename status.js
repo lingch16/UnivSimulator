@@ -50,6 +50,11 @@ const statusBanner = {
         div.appendChild(this.moneySpan);
         div.className = "statusBar";
 
+        this.strspan2.className = "plain-status-span";
+        this.moospan2.className = "plain-status-span";
+        this.spispan2.className = "plain-status-span";
+        this.monspan2.className = "plain-status-span";
+
         return div;
     },
     updateDiv: function(player) {
