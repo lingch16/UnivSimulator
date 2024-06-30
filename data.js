@@ -790,7 +790,7 @@ const examReport = {
     showGraduateDiv: function(player) {
         examReport.title.textContent = "毕业答辩";
         examReport.subtitle.textContent = "大四下学期";
-        if (numFailedExam < 5) {
+        if (numFailedExam <= 2) {
             examReport.para1.textContent = "毕业答辩满分100分。经专家讨论，你的得分是：";
             let sc = calLunwen(player);
             examReport.para2.textContent = sc.toString();
@@ -1038,9 +1038,9 @@ const examResit = {
             //处理挂科的学业警告
             if (fNum > 0) {
                 //第一次挂科
-                if (numFailedExam === 0) {
+                if (numFailedExam === 0 && fNum <= 2) {
                     gradeReport.appendWarning("挂科了，失去保研资格！");
-                } else if (numFailedExam < 2 && numFailedExam + fNum >= 2) {
+                } else if (numFailedExam <= 2 && numFailedExam + fNum > 2) {
                     //第一次触发学业预警
                     gradeReport.appendWarning("你挂了超过两门课，触发学业预警。挂五门课即退学，务必端正学习态度。");
                 }
