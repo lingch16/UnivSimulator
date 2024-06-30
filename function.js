@@ -377,11 +377,11 @@ function calCetScore (player) {
 //计算实习
 //3： 好实习 2：一般的实习  1：差实习 0：没找到
 function calShixi (player) {
-    let base = player.horizon + player.finance + player.battle + shixiBase + player.luck;
+    let base = player.horizon + player.finance + player.battle + shixiBase + player.luck - player.univRank;
 
     switch (player.majorCode) {
         case ART_MAJOR: 
-        base -= 5;
+        base -= 10;
         break;
         case SOCIAL_MAJOR:
         case ENGINEER_MAJOR:
@@ -420,12 +420,13 @@ function calBaoYan (player) {
 
     switch (player.majorCode) {
         case ART_MAJOR:
-        base -= 10;
+        base -= 20;
         break;
         case SCIENCE_MAJOR:
         base += 10;
         break;
         default:
+        base -= 5;
         break;
     }
 
@@ -526,7 +527,7 @@ function seekJob (player, count) {
 
     if (player.univRank <= 4) {
         for (let i = 0; i < count; i++) {
-            let z = getRandomInteger(0, 3000);
+            let z = getRandomInteger(0, 4000);
             if (y > z) {
                 return 3;
             }
@@ -540,12 +541,12 @@ function seekJob (player, count) {
     for (let i = 0; i < count; i++) {
         let j = getRandomInteger(0, 100);
         if (j > 60) {
-            let z = getRandomInteger(0, 3000);
+            let z = getRandomInteger(0, 4000);
             if (y > z) {
                 return 3;
             }
         } else if (j > 30) {
-            let z = getRandomInteger(0, 1800);
+            let z = getRandomInteger(0, 2500);
             if (y > z) {
                 return 2;
             }
