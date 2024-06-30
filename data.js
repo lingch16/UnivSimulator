@@ -797,7 +797,7 @@ const examReport = {
             if (sc < 60) {
                 flagDanbiye = true;  //毕业证单证
                 examReport.para3.textContent = "没通过毕业答辩，拿不到学位证！";
-                if (flagKaoshangYan || flagGongzuo3 || flagGongzuo2 && !flagGongzuo1) {
+                if ((flagKaoshangYan || flagGongzuo3 || flagGongzuo2) && !flagGongzuo1) {
                     this.para4.textContent = "没有学位证，考研、找工作的事也黄了……";
                 } else if (flagGongzuo1) {
                     this.para4.textContent = "黑作坊老板答应你，没有学位证也能去上班。真是不幸中的万幸。";
