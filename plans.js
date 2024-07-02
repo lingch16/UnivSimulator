@@ -128,7 +128,7 @@ const splanDuJia = new schoolPlan("去豪华酒店度假", "花一万块钱，�
 const exSplanList = [splanGeJiuCai, splanTiKao, splanChanHui, splanKeYan, splanJiuYe, splanDuJia];
 
 //零体力、零金钱时，返回特殊规划
-const splanBanZhuan = new schoolPlan("搬砖", "搭进去半条命，挣四千块钱。", 4000, -50, -50, -50, 0, 0, 0, 0, 0, 0, 0);
+const splanBanZhuan = new schoolPlan("搬砖", "搭进去半条命，挣四千块钱。", 4000, -40, -40, -40, 0, 0, 0, 0, 0, 0, 0);
 const zeroStrengthPlans = lowSplanList;
 const zeroMoneyPlans = [splanBanZhuan, splanLvYou, splanBaoBan, splanChaoGu, splanLianAi];
 
@@ -253,7 +253,7 @@ const seventShiJuanDasi = new specialEvent("放放水啦", "毕业答辩前夕�
 //其它特殊事件
 
 //负面事件。根据风险值，概率触发。
-const seventMaiBi = new specialEvent("买笔", "有人上门推销，自称是经济系学长，在做社会实践，要你买他的笔。一看就是骗子。你揍了他一顿，不得不赔他医药费。（损失两千块钱，大幅消耗体力、精力、心情，小幅提升战斗力。）", -2000, -20, -20, -20, 0, 0, 1, 1, 0, 0);
+const seventMaiBi = new specialEvent("买笔", "有人上门推销，自称是经济系毕业班学生，在做社会实践，要你买他的笔。一看就是骗子。你揍了他一顿，不得不赔他医药费。（损失两千块钱，大幅消耗体力、精力、心情，小幅提升战斗力。）", -2000, -20, -20, -20, 0, 0, 1, 1, 0, 0);
 const seventKeGai = new specialEvent("教学质量", "连续好几届学生反映，期末考试太简单、没有区分度。任课老师痛定思痛，狠抓教学质量，顺便加大期末考试难度。（降低本学期期末考试成绩。）", 0, 0, 0, 0, 0, 0, 0, 0, 0, -10);
 const seventChaoJia = new specialEvent("寝室矛盾", "因为寝室卫生问题，跟室友大打出手。双方都很不爽。（大幅降低心情、精力，提高战斗力。）", 0, -20, 0, -20, 0, 0, 2, 5, 0, 0);
 const seventXueHan = new specialEvent("血汗工厂", "被辅导员卖去血汗工厂打工。搭进去半条命，却只拿到五百块劳务费。", 500, 0, -50, 0, 0, 0, 0, 0, 0, 0);
