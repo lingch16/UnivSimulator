@@ -46,10 +46,10 @@ function setMajorPage(player) {
     labelEng.htmlFor = optionEng.id;
     labelSci.htmlFor = optionSci.id;
 
-    labelArt.textContent = "纯文科";
-    labelSoc.textContent = "经管法等社科类";
-    labelEng.textContent = "新工科类专业";
-    labelSci.textContent = "基础科学";
+    labelArt.textContent = "纯文科（期末考试简单）";
+    labelSoc.textContent = "经管法等社科类（比较均衡）";
+    labelEng.textContent = "新工科类专业（好找工作）";
+    labelSci.textContent = "基础科学（更容易保研）";
 
     let majorGroupDiv = document.createElement("div");
     
@@ -388,6 +388,13 @@ function setCollegeApplyPage(currentPlayer) {
                 currentPlayer.univRank = rankexUniv.rank;
             } else {
                 currentPlayer.univRank = pass[0].rank;
+            }
+            //省、市状元不会滑档
+            if (currentPlayer.intelligence >= 10) {
+                currentPlayer.univRank = myCollege[0].rank;
+            }
+            if ((currentPlayer.intelligence === 9) && (currentPlayer.univRank !== myCollege[0].rank)) {
+                currentPlayer.univRank = myCollege[1].rank;
             }
             document.body.removeChild(collegeApplyDiv);
             collegeApplyDiv = null;
