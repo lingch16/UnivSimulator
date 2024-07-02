@@ -384,15 +384,30 @@ const specialEventList = {
                 return vbadSeventList[c];
             } else {
                 let c = getRandomInteger(0, 4);
+                //大四下学期不发生绩点相关事件
+                if (badSeventList[c] === seventKeGai && player.semester === 8) {
+                    lunwenBase -= 10;
+                    return seventKeGaiDasi;
+                }
                 return badSeventList[c];   
             }
         } else {
             let b = getRandomInteger(0, 100);
             if (b < player.luck) {
                 let c = getRandomInteger(0, 4);
+                //大四下学期不发生绩点相关事件
+                if (player.semester === 8 && c === 0) {
+                    let d = getRandomInteger(1, 4);
+                    return vgoodSeventList[d];
+                }
                 return vgoodSeventList[c];
             } else {
                 let c = getRandomInteger(0, 4);
+                //大四下学期不发生绩点相关事件
+                if (goodSeventList[c] === seventShiJuan && player.semester === 8) {
+                    lunwenBase += 20;
+                    return seventShiJuanDasi;
+                }
                 return goodSeventList[c];
             }
         }
