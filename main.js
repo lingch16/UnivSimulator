@@ -748,7 +748,7 @@ function setGameover (my, endflag) {
         }
         case GUAKE_END: {
             subtitle.textContent = "退学通知书";
-            text.textContent = "你补考后仍有超过十门课程不合格。根据我校学生管理规定，对你做退学处理。就算你有异议，也不允许申诉。  （教务处）";
+            text.textContent = "你补考后仍有五门或以上课程不合格。根据我校学生管理规定，对你做退学处理。就算你有异议，也不允许申诉。  （教务处）";
             title.textContent = "寄！";
             break;
         }
