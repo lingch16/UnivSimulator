@@ -93,33 +93,38 @@ class schoolPlan{
 };
 
 //根据眼界值不同，显示不同规划
-const splanFaDai = new schoolPlan("发呆", "恢复心情、精力，大幅恢复体力。", 0, 10, 20, 10, 0, 0, 0, 0, 0, 0, 0); 
-const splanJuanJiDian = new schoolPlan("卷绩点", "消耗较多心情、精力，小幅消耗体力。提高本学期期末考试成绩。", 0, -15, -5, -15, 0, 0, 0, 10, 0, 0, 0);
+
+//1决断 约等于 25状态
+const splanFaDai = new schoolPlan("发呆", "小幅恢复心情、精力，较大幅恢复体力。", 0, 5, 15, 5, 0, 0, 0, 0, 0, 0, 0); 
+const splanJuanJiDian = new schoolPlan("卷绩点", "消耗心情、精力，小幅消耗体力。提高期末考试成绩（仅限本学期）。", 0, -10, -5, -10, 0, 0, 0, 10, 0, 0, 0);
 const splanDaGong = new schoolPlan("兼职打工", "小幅消耗心情、精力，较大幅度消耗体力。赚2000零花钱。", 2000, -5, -15, -5, 0, 0, 0, 0, 0, 0, 0);
-const splanLiCai = new schoolPlan("闲钱理财", "小幅消耗心情、精力，小幅提升财商。", 0, -5, 0, -5, 0, 0, 1, 0, 0, 0, 0);
+const splanLiCai = new schoolPlan("闲钱理财", "消耗心情、精力，小幅消耗体力。小幅提升财商。", 0, -10, -5, -10, 0, 0, 1, 0, 0, 0, 0);
 const splanDuiXian = new schoolPlan("和网友对线", "小幅消耗心情、精力，小幅提升战斗力。", 0, -5, 0, -5, 0, 0, 0, 0, 1, 1, 0);
 const lowSplanList = [splanFaDai, splanJuanJiDian, splanDaGong, splanLiCai, splanDuiXian];
 
+//1决断 约等于 40状态
 const splanLvYou = new schoolPlan("旅游", "花1000块钱。小幅消耗体力，恢复心情、精力。小幅提升眼界。", -1000, 10, -5, 10, 0, 1, 0, 0, 0, 0, 0);
-const splanBaoBan = new schoolPlan("报培训班", "花1000块钱。消耗心情、精力、体力，小幅提升智力。", -1000, -10, -10, -10, 1, 0, 0, 0, 0, 0, 0);
+const splanBaoBan = new schoolPlan("报培训班", "花1000块钱。小幅消耗心情、精力，小幅提升智力。", -1000, -5, 0, -5, 1, 0, 0, 0, 0, 0, 0);
 const splanXunXin = new schoolPlan("寻衅滋事", "花1000块钱。小幅消耗体力、精力，提高战斗力。", -1000, 0, -5, -5, 0, 0, 0, 0, 2, 2, 0);
 const splanMaiDaAn = new schoolPlan("买答案", "花1000块钱找任课老师买答案，大幅提高期末考试成绩。", -1000, 0, 0, 0, 0, 0, 0, 20, 0, 3, 0);
-const splanZiMeiTi = new schoolPlan("做自媒体", "消耗心情、精力，赚3000块钱。", 3000, -10, 0, -10, 0, 0, 0, 0, 0, 0, 0);
+const splanZiMeiTi = new schoolPlan("做自媒体", "消耗心情、精力，赚2400块钱。", 2400, -10, 0, -10, 0, 0, 0, 0, 0, 0, 0);
 const middleSplanList = [splanLvYou, splanBaoBan, splanXunXin, splanMaiDaAn, splanZiMeiTi];
 
-const splanTangPing = new schoolPlan("躺平", "啥都不干，较大幅度恢复心情、精力、体力。也许会有好事发生。", 0, 15, 15, 15, 0, 0, 0, 0, 0, -1, 2);
-const splanHeiKe = new schoolPlan("威胁学霸做替考", "极大幅提高期末考试成绩，提高战斗力。", 0, 0, 0, 0, 0, 0, 0, 30, 2, 5, 0);
-const splanChaoGu = new schoolPlan("炒股", "亏2000块钱，消耗心情、精力，较大幅度提升财商。", -2000, -10, 0, -10, 0, 0, 3, 0, 0, 0, 0);
-const splanLianAi = new schoolPlan("谈恋爱", "花2000块钱，大幅消耗体力，恢复心情、精力。还能提升眼界。", -2000, 10, -20, 10, 0, 2, 0, 0, 0, 0, 0);
-const splanGanRao = new schoolPlan("不让室友学习", "消耗体力，提高自己的期末成绩，大幅度提高战斗力。但是会变笨。", 0, 0, -10, 0, -1, 0, 0, 10, 4, 3, 0);
+//1决断 约等于 100状态
+const splanTangPing = new schoolPlan("躺平", "啥都不干，较大幅度恢复心情、精力、体力。也许会有好事发生。", 0, 15, 15, 15, 0, 0, 0, 0, 0, -1, 1);
+const splanHeiKe = new schoolPlan("威胁学霸做替考", "极大幅提高期末考试成绩。", 0, 0, 0, 0, 0, 0, 0, 30, 0, 4, 0);
+const splanChaoGu = new schoolPlan("炒股", "亏2000块钱，较大幅度提升财商。", -2000, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0);
+const splanLianAi = new schoolPlan("谈恋爱", "花2000块钱，大幅消耗体力，恢复心情、精力。较大幅度提升眼界。", -2000, 10, -20, 10, 0, 3, 0, 0, 0, 0, 0);
+const splanGanRao = new schoolPlan("不让室友学习", "消耗体力，提高自己的期末成绩，较大幅度提高战斗力。但是会变笨。", 0, 0, -10, 0, -1, 0, 0, 10, 3, 3, 0);
 const highSplanList = [splanTangPing, splanHeiKe, splanChaoGu, splanLianAi, splanGanRao];
 
-const splanGeJiuCai = new schoolPlan("操纵金融市场", "割散户韭菜，一次就能赚一万块，还能极大幅提高财商和战斗力。但可能会发生不好的事。", 10000, 0, 0, 0, 0, 0, 5, 0, 5, 20, 0);
+//1决断 约等于 400状态
+const splanGeJiuCai = new schoolPlan("操纵金融市场", "割散户韭菜，一次就能赚一万块，极大幅提高财商和战斗力。但可能会发生不好的事。", 10000, 0, 0, 0, 0, 0, 5, 0, 5, 20, 0);
 const splanTiKao = new schoolPlan("黑进教务系统", "期末成绩拉满，顺便勒索学校两千块钱，极大幅提高战斗力。但说不定会遭报应。", 2000, 0, 0, 0, 0, 0, 0, 100, 5, 20, 0);
-const splanChanHui = new schoolPlan("忏悔", "向地球OL管理员坦白罪过，祈求宽恕。捐出五千块钱，大幅消耗体力、精力、心情。", -5000, -20, -20, -20, 0, 0, 0, 0, 0, -20, 5);
-const splanKeYan = new schoolPlan("做科研", "消耗体力、精力、心情，极大幅度增加智力，还能拿两千块补助。", 2000, -10, -10, -10, 5, 0, 0, 0, 0, 0, 1);
+const splanChanHui = new schoolPlan("忏悔", "向地球OL管理员坦白罪过，祈求宽恕。捐出五千块钱，大幅消耗体力、精力、心情。", -5000, -20, -20, -20, 0, 0, 0, 0, 0, -24, 6);
+const splanKeYan = new schoolPlan("做科研", "消耗体力、精力、心情，极大幅度增加智力，还能拿两千块补助。", 2000, -10, -10, -10, 5, 0, 0, 0, 0, 0, 0);
 const splanJiuYe = new schoolPlan("做市场调研", "消耗体力，极大幅度增加求职成功率，还能提高财商。", 0, 0, -10, 0, 0, 5, 2, 0, 0, 0, 1);  //眼界与求职成功率正相关
-const splanDuJia = new schoolPlan("去豪华酒店度假", "花一万块钱，体力、精力、心情全部恢复到满状态。大幅增加幸运值。", -10000, 200, 200, 200, 0, 0, 0, 0, 0, 0, 4);
+const splanDuJia = new schoolPlan("去豪华酒店度假", "花一万块钱，体力、精力、心情全部恢复到满状态。较大幅度增加幸运值。", -10000, 200, 200, 200, 0, 0, 0, 0, 0, 0, 5);
 const exSplanList = [splanGeJiuCai, splanTiKao, splanChanHui, splanKeYan, splanJiuYe, splanDuJia];
 
 //零体力、零金钱时，返回特殊规划
@@ -241,7 +246,8 @@ const seventGongzuo2 = new specialEvent("差强人意的offer", "工作枯燥乏
 const seventGongzuo1 = new specialEvent("黑作坊offer", "郊区黑作坊两班倒，比牛马还牛马。一定是你上辈子修来的福报。", 0, 0, 0, 0, 0, 0, 0, 0, CODE_GONGZUO, 0);
 const seventGongzuo0 = new specialEvent("颗粒无收", "找了一整年工作，却没有任何一家公司要你。认命吧。", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
-
+const seventKeGaiDasi = new specialEvent("严抓毕设质量", "为迎接教育部门检查，校领导要求提升本科学位论文质量，加强论文评审工作。", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+const seventShiJuanDasi = new specialEvent("放放水啦", "毕业答辩前夕，班上一位同学试图一跃解千愁。院领导连夜开会，要求论文答辩放水，防止类似事件再次发生。", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 
 //其它特殊事件
