@@ -879,10 +879,9 @@ const examReport = {
                 exNum = SCIENCE_NUM;
                 exbase += SCIENCE_DIFF;
             }
-	    case MEDICAL_MAJOR: {   //这个难度可能玩不了。或许可以把期末和毕业论文难度分开处理。比如在这里加个10。
+	    case MEDICAL_MAJOR: {   
                 exNum = MEDICAL_NUM;
                 exbase += MEDICAL_DIFF;
-		exbase += 10;
             }
         }
 
