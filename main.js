@@ -17,10 +17,12 @@ function setMajorPage(player) {
     let optionSoc = document.createElement("input");
     let optionEng = document.createElement("input");
     let optionSci = document.createElement("input");
+	let optionMed = document.createElement("input");
     let labelArt = document.createElement("label");
     let labelSoc = document.createElement("label");
     let labelEng = document.createElement("label");
     let labelSci = document.createElement("label");
+	let labelMed = document.createElement("label");
 
     optionArt.type = "radio";
     optionArt.name = "majorChoose";
@@ -41,16 +43,23 @@ function setMajorPage(player) {
     optionSci.name = "majorChoose";
     optionSci.id = "choiceSci";
     optionSci.value = "sci";
+	
+	optionMed.type = "radio";
+    optionMed.name = "majorChoose";
+    optionMed.id = "choiceMed";
+    optionMed.value = "med";
 
     labelArt.htmlFor = optionArt.id;
     labelSoc.htmlFor = optionSoc.id;
     labelEng.htmlFor = optionEng.id;
     labelSci.htmlFor = optionSci.id;
+	labelMed.htmlFor = optionMed.id;
 
     labelArt.textContent = "纯文科（期末考试简单）";
     labelSoc.textContent = "经管法等社科类（比较均衡）";
     labelEng.textContent = "新工科类专业（好找工作）";
     labelSci.textContent = "基础科学（更容易保研）";
+	labelMed.textContent = "医科专业（最难毕业的）";
 
     let majorGroupDiv = document.createElement("div");
     
@@ -58,6 +67,7 @@ function setMajorPage(player) {
     let majorItemDiv2 = document.createElement("div");
     let majorItemDiv3 = document.createElement("div");
     let majorItemDiv4 = document.createElement("div");
+	let majorItemDiv5 = document.createElement("div");
 
     majorItemDiv1.appendChild(optionArt);
     majorItemDiv1.appendChild(labelArt);
@@ -71,6 +81,9 @@ function setMajorPage(player) {
     majorItemDiv4.appendChild(optionSci);
     majorItemDiv4.appendChild(labelSci);
 
+    majorItemDiv5.appendChild(optionMed);
+    majorItemDiv5.appendChild(labelMed);
+	
     let submit = document.createElement("button");
     submit.textContent = "确定";
 
@@ -82,11 +95,13 @@ function setMajorPage(player) {
     majorItemDiv2.className = "major-ritem";
     majorItemDiv3.className = "major-ritem";
     majorItemDiv4.className = "major-ritem";
+	majorItemDiv5.className = "major-ritem";
 
     majorGroupDiv.appendChild(majorItemDiv1);
     majorGroupDiv.appendChild(majorItemDiv2);
     majorGroupDiv.appendChild(majorItemDiv3);
     majorGroupDiv.appendChild(majorItemDiv4);
+	majorGroupDiv.appendChild(majorItemDiv5);
 
     submit.className = "major-button";
 
@@ -122,15 +137,21 @@ function setMajorPage(player) {
                 player.major = scienceMajorCode;
                 break;
             }
+			case optionMed.value: {
+                player.major = medicalMajorCode;
+                break;
+            }
         }
         optionArt = null;
         optionSoc = null;
         optionEng = null;
         optionSci = null;
+		optionMed = null;
         labelArt = null;
         labelSoc = null;
         labelEng = null;
         labelSci = null;
+		labelMed = null;
         submit = null;
         div = null;
         setCollegeApplyPage(player);

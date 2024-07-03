@@ -387,6 +387,9 @@ function calShixi (player) {
         case ENGINEER_MAJOR:
         base += 5;
         break;
+		case MEDICAL_MAJOR:
+        base += 10;
+        break;
         default:
         break;
     }
@@ -421,6 +424,9 @@ function calBaoYan (player) {
     switch (player.majorCode) {
         case ART_MAJOR:
         base -= 20;
+        break;
+		case MEDICAL_MAJOR:
+        base += 5;
         break;
         case SCIENCE_MAJOR:
         base += 10;
@@ -517,6 +523,9 @@ function seekJob (player, count) {
         case ENGINEER_MAJOR: 
         y += 70;
         break;
+		case MEDICAL_MAJOR: 
+        y += 50;
+        break;
         case SOCIAL_MAJOR:
         case SCIENCE_MAJOR:
         y += 30;
@@ -576,6 +585,9 @@ function calLunwen(player) {
         break;
         case SCIENCE_MAJOR:
         base += SCIENCE_DIFF;
+        break;
+		case MEDICAL_MAJOR:
+        base += MEDICAL_DIFF;
         break;
     }
     if (base >= 100) {

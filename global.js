@@ -29,15 +29,13 @@ const gradeNumber = 11;
 //专业相关
 
 //人文大类
-const ART_MAJOR = 11;   
-const ART_NUM = 6;
-const ART_DIFF = 10;  //难度系数
-//难度系数越大，期末考越简单。难度系数可以取正值，也可以取负值。
-const artMajorCode = 11; 
-const artMajorText = "人文类专业";
-const artMajorCourseNum = 6;  //每学期上六门课
-const artTotalCourseNum = 46;  //大二、大三，每学期多一门课。即 6x8+4=52 
-//大四下学期写毕业论文，没课。再减掉6是46。
+const ART_MAJOR = 11;  //专业代码
+const ART_NUM = 6;  //每学期课程数
+const ART_DIFF = 10;  //难度系数，难度系数越大，期末考越简单。难度系数可以取正值，也可以取负值。
+const artMajorCode = 11;  //专业代码
+const artMajorText = "人文类专业";  //专业名称
+const artMajorCourseNum = 6;  //每学期课程数
+const artTotalCourseNum = 46;  //大二、大三，每学期多一门课。即 6x8+4=52，大四下学期写毕业论文，没课。再减掉6是46。
 //社科大类
 const SOCIAL_MAJOR = 22;
 const SOCIAL_NUM = 7;
@@ -62,6 +60,15 @@ const scienceMajorCode = 44;
 const scienceMajorText = "基础科学";
 const scienceMajorCourseNum = 5;
 const scienceTotalCourseNum = 39;
+//医科大类
+const MEDICAL_MAJOR = 55;
+const MEDICAL_NUM = 8;
+const MEDICAL_DIFF = -15;
+const medicalMajorCode = 55; 
+const medicalMajorText = "医科专业";
+const medicalMajorCourseNum = 8;
+const medicalTotalCourseNum = 60;
+
 
 //不同等级的学期规划限制
 const MONEY_M_LIMIT = 1000;
