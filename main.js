@@ -139,6 +139,7 @@ function setMajorPage(player) {
             }
 	    case optionMed.value: {
                 player.major = medicalMajorCode;
+		player.risk += 10;    //增加游戏难度
                 break;
             }
         }
