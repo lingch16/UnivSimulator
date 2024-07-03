@@ -214,11 +214,11 @@ const rXsh2 = new specialEvent("挤进校会主席团", "作为主席团成员�
 const rXsh3 = new specialEvent("成为学生会长", "校会一把手，整个学校都在肩上扛着，位高权重。跳出三界外，不在五行中。直接成为人生赢家。", 0, 0, 0, 0, 0, 0, 0, 0, CODE_XSH3, 0);
 const rListXsh = [rXsh1, rXsh2, rXsh3];
 
-//氪金页游事件
-const seventGuGuZhen = new specialEvent("发现一款氪金页游", "有什么非玩不可的理由吗？骗氪不说，还越玩越气。（氪了五百多、小幅降低心情。）", -518, -GRI(4,6), 0, 0, 0, 0, 0, 0, CODE_GU_GU, 0);
-const rGGZ1 = new specialEvent("入围排行榜", "往页游里氪金，不知不觉氪到全服前一百了。（刚说完又氪了两千多进去。）", -2072, 0, 0, 0, 0, 0, 0, 0, CODE_GGZ1, 0);
-const rGGZ2 = new specialEvent("挤进全服前十", "卧槽，居然氪到全服前十了。少说也砸了五千多进去吧？", -5180, 0, 0, 0, 0, 0, 0, 0, CODE_GGZ2, 0);
-const rGGZ3 = new specialEvent("页游登顶", "砸了两万多进去，总算站上排行榜第一的位置了。大学？那是啥？有氪金页游就够了。", -20720, 0, 0, 0, 0, 0, 0, 0, CODE_GGZ3, 0);
+//课金页游事件
+const seventGuGuZhen = new specialEvent("发现一款课金页游", "有什么非玩不可的理由吗？骗课不说，还越玩越气。（课了五百、小幅降低心情。）", -500, -GRI(4,6), 0, 0, 0, 0, 0, 0, CODE_GU_GU, 0);
+const rGGZ1 = new specialEvent("入围排行榜", "往页游里课金，不知不觉课到全服前一百了。（刚说完又课了两千进去。）", -2000, 0, 0, 0, 0, 0, 0, 0, CODE_GGZ1, 0);
+const rGGZ2 = new specialEvent("挤进全服前十", "卧槽，居然课到全服前十了。少说也砸了五千进去吧？", -5000, 0, 0, 0, 0, 0, 0, 0, CODE_GGZ2, 0);
+const rGGZ3 = new specialEvent("页游登顶", "砸了两万进去，总算站上排行榜第一的位置了。大学？那是啥？有课金页游就够了。", -20000, 0, 0, 0, 0, 0, 0, 0, CODE_GGZ3, 0);
 const rListGGZ = [rGGZ1, rGGZ2, rGGZ3];
 
 //诺奖事件
