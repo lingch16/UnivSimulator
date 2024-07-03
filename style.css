@@ -6,6 +6,13 @@ ul li {
   list-style-type: none;
 }
 
+/*Github角标样式*/
+.github-corner{
+	position: absolute;
+	z-index: 999;
+}
+
+
 /*欢迎页设置*/
 .welcome-page {
   font-family: Arial, sans-serif;
