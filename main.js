@@ -333,13 +333,30 @@ function setCollegeApplyPage(currentPlayer) {
     collegeApplyDiv.appendChild(description2);
 
     //用随机生成的智商代替高考分数，作为填志愿的依据。填报成功失败与院校排名和智商有关。    
+    //@HazukiKaguya：
+    //优化志愿填报页面院校逻辑
+
+    //第一梯队填报的第五个志愿从第二梯队中随机抽取；
+    let tier1UnivList = [...goodUniv];
+    tier1UnivList.push(fairUniv[getRandomInteger(0,4)]);
+
+    //第二梯队填报的第五个志愿从第三梯队中随机抽取，前四个志愿为第二梯队的五个随机删去一个；
+    let fairRandomUnivList = [...fairUniv];
+    fairRandomUnivList.splice(getRandomInteger(0,4), 1);
+    let tier2UnivList = [...fairRandomUnivList];
+    tier2UnivList.push(poorUniv[getRandomInteger(0,2)]); //poorUniv数组有四个元素，最后一个是tier4的学校。这里只在前三个tier3的学校间随机抽。
+
+    //第三梯队填报的第一个志愿从第二梯队中随机抽取
+    let tier3UnivList = [fairUniv[getRandomInteger(0,4)]];
+    tier3UnivList.push(...poorUniv);
+
     let currentUnivList = [];
     if (currentPlayer.intelligence >= 6) {
-        currentUnivList = [...goodUnivList];
+        currentUnivList = [...tier1UnivList];
     } else if (currentPlayer.intelligence >= 3) {
-        currentUnivList = [...fairUnivList];
+        currentUnivList = [...tier2UnivList];
     } else {
-        currentUnivList = [...poorUnivList];
+        currentUnivList = [...tier3UnivList];
     }
 
 
