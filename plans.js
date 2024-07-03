@@ -93,7 +93,18 @@ class schoolPlan{
 
 //根据眼界值不同，显示不同规划
 
+//数值参考：
+//1低级决断 = 25状态
+//1中级决断 = 40状态
+//1高级决断 = 100状态
+//1其它属性 = 50状态 = 2000金钱
+//1智力 = 1.5其它属性
+//1属性 = -4风险
+//1examBase = 5状态
+
 //1决断 约等于 25状态
+
+//投入1低级决断，产出状态值期望5+15+5=25。
 const splanFaDai = new schoolPlan("发呆", "小幅恢复心情、精力，较大幅恢复体力。", 0, GRI(4,6), GRI(12,17), GRI(4,6), 0, 0, 0, 0, 0, 0, 0); 
 const splanJuanJiDian = new schoolPlan("卷绩点", "消耗心情、精力，小幅消耗体力。提高期末考试成绩（仅限本学期）。", 0, -GRI(8,12), -GRI(4,6), -GRI(8,12), 0, 0, 0, GRI(8,12), 0, 0, 0);
 const splanDaGong = new schoolPlan("兼职打工", "小幅消耗心情、精力，较大幅度消耗体力。赚取2k左右的零花钱。", GRI(1500,2500), -GRI(4,6), -GRI(12,17), -GRI(4,6), 0, 0, 0, 0, 0, 0, 0);
@@ -106,7 +117,8 @@ const splanLvYou = new schoolPlan("旅游", "花千把块钱。小幅消耗体�
 const splanBaoBan = new schoolPlan("报培训班", "花千把块钱。小幅消耗心情、精力，小幅提升智力。", -GRI(800,1200), -GRI(4,6), 0, -GRI(4,6), GRI(1,2), 0, 0, 0, 0, 0, 0);
 const splanXunXin = new schoolPlan("寻衅滋事", "花千把块钱。小幅消耗体力、精力，提高战斗力。", -GRI(800,1200), 0, -GRI(4,6), -GRI(4,6), 0, 0, 0, 0, GRI(1,3), GRI(1,3), 0);
 const splanMaiDaAn = new schoolPlan("买答案", "花千把块钱找任课老师买答案，大幅提高期末考试成绩。", -GRI(800,1200), 0, 0, 0, 0, 0, 0, GRI(18,22), 0, GRI(2,4), 0);
-const splanZiMeiTi = new schoolPlan("做自媒体", "消耗心情、精力，可能赚可能亏。小幅提升眼界。", GRI(-1500,2500), -GRI(6,10), 0, -GRI(6,10), 0, GRI(1,2), 0, 0, 0, 0, 0);
+//投入1中级决断、8+8=16点状态（总计56点状态），产出1200金钱（折合30状态）、0.5眼界（折合25状态）
+const splanZiMeiTi = new schoolPlan("做自媒体", "消耗心情、精力，可能赚可能亏。或许能提升眼界。", GRI(-1600,4000), -GRI(6,10), 0, -GRI(6,10), 0, GRI(0,1), 0, 0, 0, 0, 0);
 const middleSplanList = [splanLvYou, splanBaoBan, splanXunXin, splanMaiDaAn, splanZiMeiTi];
 
 //1决断 约等于 100状态
