@@ -106,7 +106,7 @@ const splanLvYou = new schoolPlan("旅游", "花千把块钱。小幅消耗体�
 const splanBaoBan = new schoolPlan("报培训班", "花千把块钱。小幅消耗心情、精力，小幅提升智力。", -GRI(800,1200), -GRI(4,6), 0, -GRI(4,6), GRI(1,2), 0, 0, 0, 0, 0, 0);
 const splanXunXin = new schoolPlan("寻衅滋事", "花千把块钱。小幅消耗体力、精力，提高战斗力。", -GRI(800,1200), 0, -GRI(4,6), -GRI(4,6), 0, 0, 0, 0, GRI(1,3), GRI(1,3), 0);
 const splanMaiDaAn = new schoolPlan("买答案", "花千把块钱找任课老师买答案，大幅提高期末考试成绩。", -GRI(800,1200), 0, 0, 0, 0, 0, 0, GRI(18,22), 0, GRI(2,4), 0);
-const splanZiMeiTi = new schoolPlan("做自媒体", "消耗心情、精力，可能赚可能亏。", GRI(-1000,3000), -GRI(6,10), 0, -GRI(6,10), 0, 0, 0, 0, 0, 0, 0);
+const splanZiMeiTi = new schoolPlan("做自媒体", "消耗心情、精力，可能赚可能亏。小幅提升眼界。", GRI(-1500,2500), -GRI(6,10), 0, -GRI(6,10), 0, GRI(1,2), 0, 0, 0, 0, 0);
 const middleSplanList = [splanLvYou, splanBaoBan, splanXunXin, splanMaiDaAn, splanZiMeiTi];
 
 //1决断 约等于 100状态
