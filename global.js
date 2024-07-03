@@ -207,6 +207,12 @@ const JIEYE_END = 1444;  //结业
 const XSH_END = 1354;
 const GGZ_END = 1453;
 const NOBEL_END = 4513;
+//各专业坏结局
+const ART_END = 3412;
+const SOC_END = 3413;
+const ENG_END = 3414;
+const SCI_END = 3415;
+const MED_END = 3416;
 
 
 

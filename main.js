@@ -59,7 +59,7 @@ function setMajorPage(player) {
     labelSoc.textContent = "经管法等社科类（比较均衡）";
     labelEng.textContent = "新工科类专业（好找工作）";
     labelSci.textContent = "基础科学（更容易保研）";
-    labelMed.textContent = "医科专业（最难毕业的）";
+    labelMed.textContent = "医科专业（高难，建议二周目再选）";
 
     let majorGroupDiv = document.createElement("div");
     
@@ -139,6 +139,7 @@ function setMajorPage(player) {
             }
 	    case optionMed.value: {
                 player.major = medicalMajorCode;
+		player.risk += 10;    //增加游戏难度
                 break;
             }
         }
@@ -712,7 +713,27 @@ function testEnd (player) {
         endflag = SPIRIT_END;
         isEnd = true;
     } else if (x < 0) {
-        endflag = RISK_END;
+        if (player.year === 4) {
+            switch(player.major) {
+                case artMajorCode: 
+                endflag = ART_END;
+                break;
+                case socialMajorCode:
+                endflag = SOC_END;
+                break;
+                case engineerMajorCode:
+                endflag = ENG_END;
+                break;
+                case scienceMajorCode:
+                endflag = SCI_END;
+                break;
+                case medicalMajorCode:
+                endflag = MED_END;
+                break;
+            }
+        } else {
+            endflag = RISK_END;
+        }
         isEnd = true;
     }
 
@@ -783,6 +804,36 @@ function setGameover (my, endflag) {
         case RISK_END: {
             subtitle.textContent = "猝死";
             text.textContent = "你坏事做尽，被天收了。真是苍天有眼。愿你下辈子做个好人。";
+            title.textContent = "寄！";
+            break;
+        }
+	case ART_END: {
+            subtitle.textContent = "顿悟";
+            text.textContent = "临近毕业，你突然发现眼前的一切不过是表象与幻觉。你毅然投入泥头车的怀抱，转生幻想乡。";
+            title.textContent = "寄！";
+            break;
+        }
+        case SOC_END: {
+            subtitle.textContent = "提篮桥进修";
+            text.textContent = "大家都在做假账，偏偏就你被抓了。可能是败人品的事做多了？愿你下辈子做个好人。";
+            title.textContent = "寄！";
+            break;
+        }
+        case ENG_END: {
+            subtitle.textContent = "背锅侠";
+            text.textContent = "“你是安全员，不抓你抓谁？”“靠，我TM负责的是信息安全！”";
+            title.textContent = "寄！";
+            break;
+        }
+        case SCI_END: {
+            subtitle.textContent = "实验室爆炸";
+            text.textContent = "“师兄，这个烧杯在冒泡诶。”“啊？”";
+            title.textContent = "寄！";
+            break;
+        }
+        case MED_END: {
+            subtitle.textContent = "医闹";
+            text.textContent = "“庸医，受死吧！”“我只是路过的实习生，你别过来啊。”";
             title.textContent = "寄！";
             break;
         }

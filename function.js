@@ -387,8 +387,9 @@ function calShixi (player) {
         case ENGINEER_MAJOR:
         base += 5;
         break;
-	case MEDICAL_MAJOR:
-        base += 10;
+	case MEDICAL_MAJOR:     
+        base -= 5;   //增加游戏难度
+	//base += 10;           
         break;
         default:
         break;
@@ -426,7 +427,8 @@ function calBaoYan (player) {
         base -= 20;
         break;
 	case MEDICAL_MAJOR:
-        base += 5;
+        //base += 5;
+	base -= 10;   //增加游戏难度
         break;
         case SCIENCE_MAJOR:
         base += 10;
@@ -524,7 +526,8 @@ function seekJob (player, count) {
         y += 70;
         break;
 	case MEDICAL_MAJOR: 
-        y += 50;
+        //y += 50;
+	y -= 30;   //增加游戏难度
         break;
         case SOCIAL_MAJOR:
         case SCIENCE_MAJOR:
@@ -802,6 +805,10 @@ function end2RatingSpan(endflag) {
 
     if (endflag === MOOD_END || endflag === STRENGTH_END || endflag === SPIRIT_END || endflag === RISK_END || endflag === GUAKE_END) {
         spanrating.textContent = "中道崩殂" + "    E";
+        spanrating.className = "attr-rating-E";
+    }
+    if (endflag === ART_END || endflag === SOC_END || endflag === ENG_END || endflag === SCI_END || endflag === MED_END) {
+        spanrating.textContent = "倒在毕业前夕" + "    E";
         spanrating.className = "attr-rating-E";
     }
     if (endflag === BAOYAN_END) {
