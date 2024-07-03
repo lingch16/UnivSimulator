@@ -107,16 +107,16 @@ class schoolPlan{
 //投入1低级决断，产出状态值期望5+15+5=25。
 const splanFaDai = new schoolPlan("发呆", "小幅恢复心情、精力，较大幅恢复体力。", 0, GRI(4,6), GRI(12,17), GRI(4,6), 0, 0, 0, 0, 0, 0, 0); 
 const splanJuanJiDian = new schoolPlan("卷绩点", "消耗心情、精力，小幅消耗体力。提高期末考试成绩（仅限本学期）。", 0, -GRI(8,12), -GRI(4,6), -GRI(8,12), 0, 0, 0, GRI(8,12), 0, 0, 0);
-const splanDaGong = new schoolPlan("兼职打工", "小幅消耗心情、精力，较大幅度消耗体力。赚取2k左右的零花钱。", GRI(1500,2500), -GRI(4,6), -GRI(12,17), -GRI(4,6), 0, 0, 0, 0, 0, 0, 0);
+const splanDaGong = new schoolPlan("兼职打工", "小幅消耗心情、精力，较大幅度消耗体力。赚取两千块左右的零花钱。", GRI(1500,2500), -GRI(4,6), -GRI(12,17), -GRI(4,6), 0, 0, 0, 0, 0, 0, 0);
 const splanLiCai = new schoolPlan("闲钱理财", "消耗心情、精力，小幅消耗体力。小幅提升财商。", GRI(0,100), -GRI(8,12), -GRI(4,6), -GRI(8,12), 0, 0, GRI(1,2), 0, 0, 0, 0);
 const splanDuiXian = new schoolPlan("和网友对线", "小幅消耗心情、精力，小幅提升战斗力。", 0, -GRI(4,6), 0, -GRI(4,6), 0, 0, 0, 0, GRI(1,2), GRI(1,2), 0);
 const lowSplanList = [splanFaDai, splanJuanJiDian, splanDaGong, splanLiCai, splanDuiXian];
 
 //1决断 约等于 40状态
-const splanLvYou = new schoolPlan("旅游", "花千把块钱。小幅消耗体力，恢复心情、精力。小幅提升眼界。", -GRI(800,1200), GRI(8,12), -GRI(4,6), GRI(8,12), 0, GRI(1,2), 0, 0, 0, 0, 0);
-const splanBaoBan = new schoolPlan("报培训班", "花千把块钱。小幅消耗心情、精力，小幅提升智力。", -GRI(800,1200), -GRI(4,6), 0, -GRI(4,6), GRI(1,2), 0, 0, 0, 0, 0, 0);
-const splanXunXin = new schoolPlan("寻衅滋事", "花千把块钱。小幅消耗体力、精力，提高战斗力。", -GRI(800,1200), 0, -GRI(4,6), -GRI(4,6), 0, 0, 0, 0, GRI(1,3), GRI(1,3), 0);
-const splanMaiDaAn = new schoolPlan("买答案", "花千把块钱找任课老师买答案，大幅提高期末考试成绩。", -GRI(800,1200), 0, 0, 0, 0, 0, 0, GRI(18,22), 0, GRI(2,4), 0);
+const splanLvYou = new schoolPlan("旅游", "花一千块钱左右。小幅消耗体力，恢复心情、精力。小幅提升眼界。", -GRI(800,1200), GRI(8,12), -GRI(4,6), GRI(8,12), 0, GRI(1,2), 0, 0, 0, 0, 0);
+const splanBaoBan = new schoolPlan("报培训班", "花一千块钱左右。小幅消耗心情、精力，小幅提升智力。", -GRI(800,1200), -GRI(4,6), 0, -GRI(4,6), GRI(1,2), 0, 0, 0, 0, 0, 0);
+const splanXunXin = new schoolPlan("寻衅滋事", "花一千块钱左右。小幅消耗体力、精力，提高战斗力。", -GRI(800,1200), 0, -GRI(4,6), -GRI(4,6), 0, 0, 0, 0, GRI(1,3), GRI(1,3), 0);
+const splanMaiDaAn = new schoolPlan("买答案", "花一千块钱左右找任课老师买答案，大幅提高期末考试成绩。", -GRI(800,1200), 0, 0, 0, 0, 0, 0, GRI(18,22), 0, GRI(2,4), 0);
 //投入1中级决断、8+8=16点状态（总计56点状态），产出1200金钱（折合30状态）、0.5眼界（折合25状态）
 const splanZiMeiTi = new schoolPlan("做自媒体", "消耗心情、精力，可能赚可能亏。或许能提升眼界。", GRI(-1600,4000), -GRI(6,10), 0, -GRI(6,10), 0, GRI(0,1), 0, 0, 0, 0, 0);
 const middleSplanList = [splanLvYou, splanBaoBan, splanXunXin, splanMaiDaAn, splanZiMeiTi];
@@ -125,7 +125,7 @@ const middleSplanList = [splanLvYou, splanBaoBan, splanXunXin, splanMaiDaAn, spl
 const splanTangPing = new schoolPlan("躺平", "啥都不干，较大幅度恢复心情、精力、体力。也许会有好事发生。", 0, GRI(12,17), GRI(12,17), GRI(12,17), 0, 0, 0, 0, 0, -GRI(1,2), GRI(1,2));
 const splanHeiKe = new schoolPlan("威胁学霸做替考", "极大幅提高期末考试成绩。", 0, 0, 0, 0, 0, 0, 0, GRI(25,35), 0, GRI(3,5), 0);
 const splanChaoGu = new schoolPlan("炒股", "大概率亏很多，较大幅度提升财商。", GRI(-3600,400), 0, 0, 0, 0, 0, GRI(2,4), 0, 0, 0, 0);
-const splanLianAi = new schoolPlan("谈恋爱", "花了不少钱，大幅消耗体力，恢复心情、精力。较大幅度提升眼界。", -GRI(1500,2500), GRI(8,12),  -GRI(17,23), GRI(8,12), 0, GRI(2,4), 0, 0, 0, 0, 0);
+const splanLianAi = new schoolPlan("谈恋爱", "花两千块左右，大幅消耗体力，恢复心情、精力。较大幅度提升眼界。", -GRI(1500,2500), GRI(8,12),  -GRI(17,23), GRI(8,12), 0, GRI(2,4), 0, 0, 0, 0, 0);
 const splanGanRao = new schoolPlan("不让室友学习", "消耗体力，提高自己的期末成绩，较大幅度提高战斗力。但是会变笨。", 0, 0, -GRI(8,12), 0, -GRI(1,2), 0, 0, GRI(8,12), GRI(2,4), GRI(2,4), 0);
 const highSplanList = [splanTangPing, splanHeiKe, splanChaoGu, splanLianAi, splanGanRao];
 
@@ -133,7 +133,7 @@ const highSplanList = [splanTangPing, splanHeiKe, splanChaoGu, splanLianAi, spla
 const splanGeJiuCai = new schoolPlan("操纵金融市场", "割散户韭菜，一次就能赚一万左右，极大幅提高财商和战斗力。但可能会发生不好的事。", GRI(8000,12000), 0, 0, 0, 0, 0, GRI(4,6), 0, GRI(4,6), GRI(18,22), 0);
 const splanTiKao = new schoolPlan("黑进教务系统", "期末成绩拉满，顺便勒索学校两千块钱，极大幅提高战斗力。但说不定会遭报应。", 2000, 0, 0, 0, 0, 0, 0, 100, GRI(4,6), GRI(18,22), 0);
 const splanChanHui = new schoolPlan("忏悔", "向地球OL管理员坦白罪过，祈求宽恕。捐出五千块钱，大幅消耗体力、精力、心情。", -5000,  -GRI(17,23),  -GRI(17,23),  -GRI(17,23), 0, 0, 0, 0, 0, -GRI(23,25), GRI(5,7));
-const splanKeYan = new schoolPlan("做科研", "消耗体力、精力、心情，极大幅度增加智力，还能拿一两千的补助。", GRI(1800,2200), -GRI(8,12), -GRI(8,12), -GRI(8,12), GRI(4,6), 0, 0, 0, 0, 0, 0);
+const splanKeYan = new schoolPlan("做科研", "消耗体力、精力、心情，极大幅度增加智力，还能拿两千块钱左右的补助。", GRI(1800,2200), -GRI(8,12), -GRI(8,12), -GRI(8,12), GRI(4,6), 0, 0, 0, 0, 0, 0);
 const splanJiuYe = new schoolPlan("做市场调研", "消耗体力，极大幅度增加求职成功率，还能提高财商。", 0, 0, -GRI(8,12), 0, 0, GRI(4,6), GRI(1,3), 0, 0, 0, GRI(1,2));  //眼界与求职成功率正相关
 const splanDuJia = new schoolPlan("去豪华酒店度假", "花一万块钱，体力、精力、心情全部恢复到满状态。较大幅度增加幸运值。", -10000, 200, 200, 200, 0, 0, 0, 0, 0, 0, GRI(4,6));
 const exSplanList = [splanGeJiuCai, splanTiKao, splanChanHui, splanKeYan, splanJiuYe, splanDuJia];
@@ -145,7 +145,7 @@ const zeroMoneyPlans = [splanBanZhuan, splanLvYou, splanBaoBan, splanChaoGu, spl
 
 //大四学年涉及考研、就业、写毕业论文等，适用特殊的一组规划
 const splanJYFudao = new schoolPlan("听就业辅导讲座", "花五千块钱，听职场前辈传授人生经验。或许比自己闷头投简历强。（较大幅度增加求职成功率。）", -5000, 0, 0, 0, 0, GRI(2,4), 0, 0, 0, 0, 0);    //求职成功率与眼界正相关
-const splanXiuZheng = new schoolPlan("休整", "花点小钱，吃好喝好休息好。（花个一两千，大幅恢复体力、精力、心情。）", -GRI(1500,2500), GRI(17,23), GRI(17,23), GRI(17,23), 0, 0, 0, 0, 0, 0, 0);
+const splanXiuZheng = new schoolPlan("休整", "花点小钱，吃好喝好休息好。（花一两千块钱，大幅恢复体力、精力、心情。）", -GRI(1500,2500), GRI(17,23), GRI(17,23), GRI(17,23), 0, 0, 0, 0, 0, 0, 0);
 const splanQiuZhao = new schoolPlan("秋招投简历", "一口气投十份简历出去，总能拿到offer吧？（投出十份简历，大幅消耗精力。）", 0, 0, 0,  -GRI(17,23), 0, 0, 0, 0, 0, 0, 0);
 const splanKaoYan = new schoolPlan("复习考研", "大幅消耗体力、精力、心情，小幅提升考研成绩。", 0,  -GRI(17,23),  -GRI(17,23),  -GRI(17,23), 0, 0, 0, 0, 0, 0, 0);
 const splanGuanXi = new schoolPlan("找关系，买今年的考研题", "花五千块买原题，考研稳如老狗。但只要平时认真复习，现在不找关系也能考上吧？", -5000, 0, 0, 0, 0, 0, 0, 0, 0, GRI(38,42), 0);
@@ -227,9 +227,9 @@ const rXsh3 = new specialEvent("成为学生会长", "校会一把手，整个�
 const rListXsh = [rXsh1, rXsh2, rXsh3];
 
 //课金页游事件
-const seventGuGuZhen = new specialEvent("发现一款课金页游", "有什么非玩不可的理由吗？骗课不说，还越玩越气。（课了五百、小幅降低心情。）", -500, -GRI(4,6), 0, 0, 0, 0, 0, 0, CODE_GU_GU, 0);
+const seventGuGuZhen = new specialEvent("发现一款课金页游", "有什么非玩不可的理由吗？骗课不说，还越玩越气。（课了五百块、小幅降低心情。）", -500, -GRI(4,6), 0, 0, 0, 0, 0, 0, CODE_GU_GU, 0);
 const rGGZ1 = new specialEvent("入围排行榜", "往页游里课金，不知不觉课到全服前一百了。（刚说完又课了两千进去。）", -2000, 0, 0, 0, 0, 0, 0, 0, CODE_GGZ1, 0);
-const rGGZ2 = new specialEvent("挤进全服前十", "卧槽，居然课到全服前十了。少说也砸了五千进去吧？", -5000, 0, 0, 0, 0, 0, 0, 0, CODE_GGZ2, 0);
+const rGGZ2 = new specialEvent("挤进全服前十", "卧槽，居然课到全服前十了。少说也砸了五千块进去吧？", -5000, 0, 0, 0, 0, 0, 0, 0, CODE_GGZ2, 0);
 const rGGZ3 = new specialEvent("页游登顶", "砸了两万进去，总算站上排行榜第一的位置了。大学？那是啥？有课金页游就够了。", -20000, 0, 0, 0, 0, 0, 0, 0, CODE_GGZ3, 0);
 const rListGGZ = [rGGZ1, rGGZ2, rGGZ3];
 
