@@ -260,6 +260,7 @@ ul li {
 .status-span {
   padding: 14px;
   color: white;
+  white-space: nowrap;   /* 避免状态栏在奇怪的地方换行  */
 }
 
 .plain-status-span {
