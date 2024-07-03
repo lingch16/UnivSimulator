@@ -63,7 +63,7 @@ const scienceTotalCourseNum = 39;
 //医科大类
 const MEDICAL_MAJOR = 55;
 const MEDICAL_NUM = 8;
-const MEDICAL_DIFF = -15;
+const MEDICAL_DIFF = -15;    //计划修改此处数值，怎么改还没想好
 const medicalMajorCode = 55; 
 const medicalMajorText = "医科专业";
 const medicalMajorCourseNum = 8;
