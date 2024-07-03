@@ -879,6 +879,10 @@ const examReport = {
                 exNum = SCIENCE_NUM;
                 exbase += SCIENCE_DIFF;
             }
+			case MEDICAL_MAJOR: {
+                exNum = MEDICAL_NUM;
+                exbase += MEDICAL_DIFF;
+            }
         }
 
         //大二、大三时，多加一门课
@@ -1313,6 +1317,10 @@ const gradeReport = {
                 this.passCourse.textContent += ("/" + scienceTotalCourseNum.toString());
                 break;
             }
+			case medicalMajorCode: {
+                this.passCourse.textContent += ("/" + medicalTotalCourseNum.toString());
+                break;
+            }
             default:
                 break;
         };
@@ -1356,6 +1364,10 @@ const gradeReport = {
             }
             case scienceMajorCode: {
                 this.passCourse.textContent += ("/" + scienceTotalCourseNum.toString());
+                break;
+            }
+			 case medicalMajorCode: {
+                this.passCourse.textContent += ("/" + medicalTotalCourseNum.toString());
                 break;
             }
             default:
