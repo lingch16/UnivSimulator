@@ -878,10 +878,12 @@ const examReport = {
             case SCIENCE_MAJOR: {
                 exNum = SCIENCE_NUM;
                 exbase += SCIENCE_DIFF;
+		break;
             }
 	    case MEDICAL_MAJOR: {   
                 exNum = MEDICAL_NUM;
                 exbase += MEDICAL_DIFF;
+		break;
             }
         }
 
