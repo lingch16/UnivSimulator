@@ -804,6 +804,10 @@ function end2RatingSpan(endflag) {
         spanrating.textContent = "中道崩殂" + "    E";
         spanrating.className = "attr-rating-E";
     }
+    if (endflag === ART_END || endflag === SOC_END || endflag === ENG_END || endflag === SCI_END || endflag === MED_END) {
+        spanrating.textContent = "倒在毕业前夕" + "    E";
+        spanrating.className = "attr-rating-E";
+    }
     if (endflag === BAOYAN_END) {
         if (flagBaoyan3) {
             spanrating.textContent = "名校保研" + "    A";
