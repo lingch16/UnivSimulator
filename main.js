@@ -2,7 +2,8 @@
 function setMajorPage(player) {
     
     //清空之前的页面
-    document.body.innerHTML = githubCorner;
+    document.body.innerHTML = "";
+    //document.body.innerHTML = githubCorner;
     
     let title = document.createElement("h2");
     title.textContent = "选择一个喜欢的专业吧：";
@@ -246,7 +247,8 @@ function setAdmissionLetterPage(collegeRank, player) {
 //志愿填报页面
 function setCollegeApplyPage(currentPlayer) {
     //删除之前页面
-    document.body.innerHTML = githubCorner;
+    document.body.innerHTML = "";
+    //document.body.innerHTML = githubCorner;
 
     let collegeApplyDiv = document.createElement("div");
     collegeApplyDiv.className = "apply-page";
@@ -1052,8 +1054,9 @@ function setGiftPage(rank) {
     maindiv.appendChild(title);
     maindiv.appendChild(giftcontainer);
     maindiv.appendChild(button);
- 
-    document.body.innerHTML = githubCorner;
+    
+    document.body.innerHTML = "";
+    //document.body.innerHTML = githubCorner;
     document.body.appendChild(maindiv);
 
 }
