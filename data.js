@@ -879,9 +879,10 @@ const examReport = {
                 exNum = SCIENCE_NUM;
                 exbase += SCIENCE_DIFF;
             }
-			case MEDICAL_MAJOR: {
+	    case MEDICAL_MAJOR: {   //这个难度可能玩不了。或许可以把期末和毕业论文难度分开处理。比如在这里加个10。
                 exNum = MEDICAL_NUM;
                 exbase += MEDICAL_DIFF;
+		exbase += 10;
             }
         }
 
@@ -1317,7 +1318,7 @@ const gradeReport = {
                 this.passCourse.textContent += ("/" + scienceTotalCourseNum.toString());
                 break;
             }
-			case medicalMajorCode: {
+	    case medicalMajorCode: {
                 this.passCourse.textContent += ("/" + medicalTotalCourseNum.toString());
                 break;
             }
@@ -1366,7 +1367,7 @@ const gradeReport = {
                 this.passCourse.textContent += ("/" + scienceTotalCourseNum.toString());
                 break;
             }
-			 case medicalMajorCode: {
+	    case medicalMajorCode: {
                 this.passCourse.textContent += ("/" + medicalTotalCourseNum.toString());
                 break;
             }
