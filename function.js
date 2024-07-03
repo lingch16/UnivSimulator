@@ -387,7 +387,7 @@ function calShixi (player) {
         case ENGINEER_MAJOR:
         base += 5;
         break;
-		case MEDICAL_MAJOR:
+	case MEDICAL_MAJOR:
         base += 10;
         break;
         default:
@@ -425,7 +425,7 @@ function calBaoYan (player) {
         case ART_MAJOR:
         base -= 20;
         break;
-		case MEDICAL_MAJOR:
+	case MEDICAL_MAJOR:
         base += 5;
         break;
         case SCIENCE_MAJOR:
@@ -473,7 +473,7 @@ function calKaoYan (player) {
         return 1;
     }
 
-    if (player.univRank === 10) {
+    if (player.univRank === 11) {
         base += 50; //考研神校特殊加成
     }
     
@@ -523,7 +523,7 @@ function seekJob (player, count) {
         case ENGINEER_MAJOR: 
         y += 70;
         break;
-		case MEDICAL_MAJOR: 
+	case MEDICAL_MAJOR: 
         y += 50;
         break;
         case SOCIAL_MAJOR:
@@ -586,7 +586,7 @@ function calLunwen(player) {
         case SCIENCE_MAJOR:
         base += SCIENCE_DIFF;
         break;
-		case MEDICAL_MAJOR:
+	case MEDICAL_MAJOR:
         base += MEDICAL_DIFF;
         break;
     }
