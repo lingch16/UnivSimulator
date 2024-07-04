@@ -8,8 +8,9 @@ ul li {
 
 /*Github角标样式*/
 .github-corner{
-	position: absolute;
 	z-index: 999;
+	position: sticky;
+	top: 0;
 }
 
 
@@ -255,6 +256,8 @@ ul li {
     background-color: #333;
     text-align: center;
     padding: 30px;
+	position: sticky;
+	top: 0;
 }
 
 .status-span {
