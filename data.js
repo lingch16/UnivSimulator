@@ -1036,7 +1036,7 @@ const examResit = {
             let fCourse = score.filter(element => element < 60);
             let fNum = fCourse.length;
 
-            examResit.div2.textContent = pNum.toString() + "门课补考后合格，成绩记录变更为“D-”。";
+            examResit.div2.textContent = pNum.toString() + "门课补考后合格，成绩记录变更为“P”。";
             if (fNum > 0) {
                 examResit.div2.textContent += fNum.toString() + "门课仍然不合格，维持“F”的记录。";
             };
@@ -1049,7 +1049,7 @@ const examResit = {
                 }
                 //补考通过pNum门课，将成绩记录里pNum门不合格的课改为补考合格
                 if (totalGPAArray[i] === 0) {
-                    totalGPAArray[i] = 100;  // 补考合格D-对应绩点1.00
+                    totalGPAArray[i] = 100;  // 补考合格P对应绩点1.00
                     j++;
                 }
             }
