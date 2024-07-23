@@ -3,27 +3,27 @@
 //储存玩家本轮游戏数据
 class Player{
     constructor(name, gender, wealth, mood, strength, spirit, intelligence, horizon, finance, luck, risk, money, year, univRank, major, round, examBase, battle, semester, cgpa, tgpa) {
-        this.name = name;     //姓名，由玩家自选
-        this.gender = gender;  //性别，由玩家自选
-        this.wealth = wealth;  //财富，与初始金钱、生活费挂钩
-        this.mood = mood;      //心情，心情好才想干活。
-        this.strength = strength;  //体力
-        this.spirit = spirit;   //精力
-        this.intelligence = intelligence;  //智商
-        this.horizon = horizon;   //眼界
-        this.finance = finance;   //财商，与赚钱相关
-        this.luck = luck;   //幸运，可以增加事件判定成功的机率。
-        this.risk = risk;        //初始为0。为正值时增加暴毙概率。
-        this.money = money;     //玩家的钱
-        this.year = year;   //记录玩家现在上大学第几年  
-        this.univRank = univRank;  //记录玩家上什么大学
-        this.major = major;  //专业
-        this.round = round;  //学期规划轮次
-        this.examBase = examBase; //期末考试成绩随机下限
-        this.battle = battle;  //战斗力
-        this.semester = semester;  //学期
-        this.cgpa = cgpa;   //上学期绩点   注意，绩点统一用0-400的数表示
-        this.tgpa = tgpa;   //总绩点
+        this.name = name;			//姓名，由玩家自选
+        this.gender = gender;			//性别，由玩家自选
+        this.wealth = wealth;			//财富，与初始金钱、生活费挂钩
+        this.mood = mood;			//心情，心情好才想干活
+        this.strength = strength;		//体力
+        this.spirit = spirit;			//精力
+        this.intelligence = intelligence;	//智商
+        this.horizon = horizon;			//眼界
+        this.finance = finance;			//财商，与赚钱相关
+        this.luck = luck;			//幸运，可以增加事件判定成功的机率
+        this.risk = risk;			//初始为0，为正值时增加暴毙概率
+        this.money = money;			//玩家的钱
+        this.year = year;			//记录玩家现在上大学第几年  
+        this.univRank = univRank;		//记录玩家上什么大学
+        this.major = major;			//专业
+        this.round = round;			//学期规划轮次
+        this.examBase = examBase;		//期末考试成绩随机下限
+        this.battle = battle;			//战斗力
+        this.semester = semester;		//学期
+        this.cgpa = cgpa;			//上学期绩点，请注意，绩点统一用0-400的数表示
+        this.tgpa = tgpa;			//总绩点
     }
 }
 
